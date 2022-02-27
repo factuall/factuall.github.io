@@ -27,30 +27,47 @@ body{
     flex-direction: row;
     padding: 0.2vw 0;
     animation-delay: 0.2s;
-    max-height: 0.7em;
 }
 
 .navigation{
-    width: 10vw;
+    width: calc(3vh * 7);
     line-height: 200%;
     background-color: #b7e4c7;
     color: #1b4332;
     text-align: center;
-    font-size: 0.35em;
+    font-size: 3vh;
     position: relative;
     transition: width 0.2s;
     min-height: 0;
 }
 
 .navigation:hover{
-    width: 12vw;
+    width: calc(3vh * 8);
     transition: width 0.2s;
 }
 
 #home{
     position: absolute;
     left: 0.2vw;
-    width: 3vw;
+    width: calc(3vh * 2);
+    z-index: 3;
+}
+
+@media (max-aspect-ratio: 1/1){
+    #home{
+        background-color: #52b788;
+        transition: all 0.3s;
+    }
+    #navigation-bar{
+        padding-left:calc(3vh * 2);
+        width: calc(100% - (3vh * 2));
+        transition: all 0.3s;
+    }
+    .navigation{
+        width: calc(3vh * 6);
+        transition: all 0.3s;
+    }
+
 }
 
 a{
@@ -59,25 +76,47 @@ a{
 
 #page-container{
     margin: 0;
-    width: 100%;
     height: 100%;
 }
 
 .page-grid{
+    font-size: 5vh;
+    position: relative;
     display: flex;
     gap: 0.25em;
     padding: 0.25em;
-    height: 100%;
+    height: 80vh;
     justify-content: center;
+    transition: right 0.5s;   
+    flex-shrink: 0;
+    width: max-content;
 }
 
 .page-grid-cell{
+    top: -100vh;
+    position: relative;
     padding: 0.8em;
     font-size: 0.5em;
     border-radius: 0.3em;
-    width: 25%;
-    height: 50%;
     background-color: #d8f3dc;
+    width: calc(80vh * 0.61);
+    z-index: -1;
+    animation: cell-slide-in forwards 1s;
+}
+
+@keyframes cell-slide-in{
+    from{top: -100vh}
+    to{top: 0}
+}
+
+@keyframes cell-slide-out{
+    from{top: 0}
+    to{top: 100vh}
+}
+
+@keyframes cell-slide-out-up{
+    from{top: 0}
+    to{top: -100vh}
 }
 
 #cv-click-me{
