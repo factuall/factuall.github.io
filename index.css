@@ -9,6 +9,7 @@ body{
     margin: 0;
     padding: 0;
     animation: fadeInBody 0.6s forwards;
+    overflow: hidden;
 }
 @keyframes fadeInBody {
     from { background-color: #d8f3dc; }
@@ -22,6 +23,11 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#main-container[shrink]{
+    margin-top: 0;
+    transition: margin-top 0.5s;
+}
+
 #full-name{
     text-align: center;
     height: 1em;
@@ -33,6 +39,11 @@ body{
     font-size: 1.5em;
     letter-spacing: auto;
     transition: letter-spacing 0.2s;
+}
+
+#full-name[shrink]{
+    height: 0;
+    transition: height 0.5s;
 }
 
 #full-name:hover{
@@ -55,6 +66,7 @@ body{
     opacity: 0;
     animation: fadeIn 0.3s forwards;
     animation-delay: 0.2s;
+    max-height: 0.7em;
 }
 @keyframes fadeIn{
     from { opacity: 0; }
@@ -68,10 +80,16 @@ body{
     color: #1b4332;
     text-align: center;
     font-size: 0.35em;
+    position: relative;
     transition: width 0.2s;
+    min-height: 0;
 }
 
 .selection:hover{
     width: 12vw;
     transition: width 0.2s;
+}
+
+a{
+    text-decoration: none;
 }
