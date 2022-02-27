@@ -13,8 +13,8 @@ body{
     width: 100%;
     font-size: 4vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
-
 
 #full-name{
     margin-top: 25vh;
@@ -22,12 +22,12 @@ body{
     height: 1em;
     color: #2d6a4f;
     overflow: hidden;
-    line-height: 300%;
-    animation: nameSlide 0.8s forwards;
-    animation-delay: 0.3s;
+    animation: name-slide 0.8s forwards;
     font-size: 1.5em;
     letter-spacing: auto;
     transition: letter-spacing 0.2s;
+    transition: all 0.5s;
+    line-height: 100%;
 }
 
 #full-name[shrink]{
@@ -41,23 +41,17 @@ body{
     transition: letter-spacing height 0.2s;
 }
 
-@keyframes nameSlide{
+@keyframes name-slide{
+    from{line-height: 300%;}
     to{line-height: 100%;}
 }
 
-#nav-bar{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 1vw;
-    background-color: #d8f3dc;
-    flex-direction: row;
-    padding: 0.2vw 0;
-    animation-delay: 0.2s;
-    max-height: 0.7em;
+@keyframes name-unslide{
+    from{margin-top: 0; height: 0; line-height: 100%;}
+    to{margin-top: 25vh; height: 1em; line-height: 100%;}
 }
 
-#selection-bar{
+#navigation-bar{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -75,7 +69,7 @@ body{
     to { opacity: 100%; }
 }
 
-.selection{
+.navigation{
     width: 10vw;
     line-height: 200%;
     background-color: #b7e4c7;
@@ -87,22 +81,15 @@ body{
     min-height: 0;
 }
 
-.nav{
-    width: 10vw;
-    line-height: 200%;
-    background-color: #b7e4c7;
-    color: #1b4332;
-    text-align: center;
-    font-size: 0.35em;
-    position: relative;
-    transition: width 0.2s;
-    min-height: 0;
-}
-
-
-.selection:hover{
+.navigation:hover{
     width: 12vw;
     transition: width 0.2s;
+}
+
+#home{
+    position: absolute;
+    left: 0.2vw;
+    width: 3vw;
 }
 
 a{
