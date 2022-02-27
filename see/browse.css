@@ -2,13 +2,14 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    height: 100vh;
 }
 
 #main-container{
     width: 100%;
     font-size: 4vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+    height: 100%;
 }
 
 #full-name[shrink]{
@@ -54,4 +55,45 @@ body{
 
 a{
     text-decoration: none;
+}
+
+#page-container{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-grid{
+    display: flex;
+    gap: 0.25em;
+    padding: 0.25em;
+    height: 100%;
+    justify-content: center;
+}
+
+.page-grid-cell{
+    padding: 0.8em;
+    font-size: 0.5em;
+    border-radius: 0.3em;
+    width: 25%;
+    height: 50%;
+    background-color: #d8f3dc;
+}
+
+#cv-click-me{
+    position: absolute;
+    z-index: 99;
+    color: white;
+    text-shadow: black 2px 2px 5px, black 2px 2px 5px;
+    width: inherit;
+    margin: auto;
+    text-align: center;
+    top: 45vh;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+#cv-click-me:hover{
+    font-size: 1.1em;
+    transition: all 0.2s;
 }
