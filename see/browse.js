@@ -4,7 +4,7 @@ var grid;
 function contentHide(down){
     for (let place = 0; place < document.getElementsByClassName("page-grid-cell").length; place++) {
         const page = document.getElementsByClassName("page-grid-cell")[place];
-        page.style.animation = down ? "cell-slide-out forwards 0.8s" : "cell-slide-out-up forwards 0.8s";
+        page.style.animation = down ? "cell-slide-out forwards 0.7s" : "cell-slide-out-up forwards 0.7s";
     }
 }
 
@@ -17,7 +17,7 @@ function navInput(id){
         contentHide(false);
         setTimeout(()=>{
             window.location.href = "/"+id;
-        },450);
+        },550);
     }
     
 }
