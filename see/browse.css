@@ -1,7 +1,10 @@
+
+
 body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-color: #181818;
     height: 100vh;
 }
 
@@ -22,8 +25,8 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 1vw;
-    background-color: #d8f3dc;
+    gap: 1.25vh;
+    background-color: #242424;
     flex-direction: row;
     padding: 0.2vw 0;
     animation-delay: 0.2s;
@@ -32,13 +35,15 @@ body{
 .navigation{
     width: calc(3vh * 7);
     line-height: 200%;
-    background-color: #b7e4c7;
-    color: #1b4332;
+    background-color: #212121;
+    color: #d6d6c3;
     text-align: center;
-    font-size: 3vh;
+    font-size: 2.5vh;
     position: relative;
     transition: width 0.2s;
     min-height: 0;
+    border: 1px solid #66666666;
+    border-radius: 0.3em;
 }
 
 .navigation:hover{
@@ -55,7 +60,7 @@ body{
 
 @media (max-aspect-ratio: 1/1){
     #home{
-        background-color: #52b788;
+        background-color: #191919;
         transition: all 0.3s;
     }
     #navigation-bar{
@@ -80,12 +85,12 @@ a{
 }
 
 .page-grid{
-    font-size: 5vh;
+    font-size: 2.5vh;
     position: relative;
     display: flex;
-    gap: 0.25em;
-    padding: 0.25em;
-    height: 80vh;
+    gap: 0.5em;
+    padding: 0.5em;
+    height: 91.5vh;
     justify-content: center;
     transition: right 0.5s;   
     flex-shrink: 0;
@@ -96,12 +101,12 @@ a{
     top: -100vh;
     position: relative;
     padding: 0.8em;
-    font-size: 0.5em;
     border-radius: 0.3em;
-    background-color: #d8f3dc;
-    width: calc(80vh * 0.61);
+    background-color: #242424;
+    color: #d6d6c3;
+    width: calc(90vh * 0.61);
     z-index: -1;
-    animation: cell-slide-in forwards 1s;
+    animation: cell-slide-in forwards 0.8s;
 }
 
 @keyframes cell-slide-in{

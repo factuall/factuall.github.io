@@ -14,6 +14,7 @@ const reloadAnimation = () => {
         document.getElementById("full-name").toggleAttribute("shrink");
     }else if(window.location.hash == "#home"){
         document.body.removeAttribute("style"); //no fade in
+        document.body.style.backgroundColor = "#181818";
         document.getElementById("full-name").style.animation = "name-unslide 0.5s forwards"; //slide back
         document.getElementById("navigation-bar").style.animation = "none"; //no fade in
         document.getElementById("navigation-bar").style.opacity = "100%";

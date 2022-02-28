@@ -75,7 +75,8 @@ function setUpPages(pageContainer){
 
 let scroll = 0;
 document.addEventListener("wheel", function (e) {
-    if(scroll > 80 && e.deltaY < 0) scroll-=80;
+    if(scroll > 0 && e.deltaY < 0) scroll-=80;
     if(e.deltaY > 0) scroll+=80;
     grid.style.right = scroll + "px";
+    if(scroll < 0) scroll = 0;
 }, true);
