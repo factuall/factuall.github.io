@@ -107,3 +107,22 @@ a{
     }
 
 }
+
+#wip-disclaimer{
+    font-size: 2vh;
+    color: #f00;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    
+    animation: bounce 2s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes bounce{
+    0%{color: #a00;}
+    50%{color: #f00;}
+    100%{color: #a00;}
+}
