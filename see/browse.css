@@ -128,12 +128,42 @@ a{
 .page-grid-horizontal-cell{
     top: -100vh;
     position: relative;
-    padding: 0.8em;
-    border-radius: 0.3em;
+    padding: 2vw;
+    border-radius: 0.75vw;
+    background-color: #242424;
+    color: #d6d6c3;
+    width: calc(90vh * 1.61);
+    animation: cell-slide-in forwards 0.8s;
+
+}
+
+.page-grid-fullpage-cell{
+    top: -100vh;
+    position: relative;
+    padding: 2vw;
+    border-radius: 0.75vw;
     background-color: #242424;
     color: #d6d6c3;
     width: 95vw;
     animation: cell-slide-in forwards 0.8s;
+    overflow: visible;
+}
+
+.page-title{
+    font-size: 8vh;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.page-subtitle{
+    margin-bottom: 0;
+}
+
+iframe {
+    pointer-events: none;
+}
+#iframe-link{
+    cursor: pointer;
 }
 
 @keyframes cell-slide-in{
