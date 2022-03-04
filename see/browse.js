@@ -77,7 +77,9 @@ function setUpPages(pageContainer){
 let scroll = 0;
 document.addEventListener("wheel", function (e) {
     if(scroll > 0 && e.deltaY < 0) scroll-=80;
-    if(e.deltaY > 0) scroll+=80;
+    let asd = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
+    console.log(asd.getClientRects()[0].x + asd.getClientRects()[0].width);
+    if(e.deltaY > 0 && (asd.getClientRects()[0].x + asd.getClientRects()[0].width) > window.innerWidth) scroll+=80;
     if(scroll < 0) scroll = 0;
     if(window.innerWidth > window.innerHeight){
         grid.style.right = scroll + "px";
@@ -96,44 +98,3 @@ window.addEventListener('resize', (e) =>{
         grid.style.top = 0-(scroll*1.61) + "px";
     }
 });
-
-function chuj(){
-    var svg = d3.select("svg").append("g");
-
-var projection = d3.geoOrthographic()
-  .translate([250,250])
-  
-var path = d3.geoPath().projection(projection);
-
-d3.json("https://unpkg.com/world-atlas@1/world/110m.json").then( function(data) {
-
-  var world = {type:"Sphere"}
-  
-  svg.append("path")
-    .datum(world)
-    .attr("d", path)
-    .attr("fill","lightblue");
-    
-  svg.selectAll(null)
-    .data(topojson.feature(data,data.objects.land).features)
-    .enter()
-    .append("path")
-    .attr("fill","lightgreen")
-    .attr("d",path);
-  
-  
-  svg.call(d3.drag()
-    .on("drag", function() {
-      var xy = d3.mouse(this);
-      projection.rotate(xy)
-      svg.selectAll("path")
-       .attr("d",path);
-    }))
-  
-
- 
- 
- 
- 
-});
-}
