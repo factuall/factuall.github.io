@@ -2,6 +2,7 @@ function navInput(id){
     console.log(id);
     document.getElementById("main-container").toggleAttribute("shrink");
     document.getElementById("full-name").toggleAttribute("shrink");
+    document.getElementById("socials").style.opacity = "0%";
     setTimeout(()=>{
         window.location.href = "/see/#"+id;
     },500);
@@ -23,6 +24,7 @@ const reloadAnimation = () => {
             document.getElementById("full-name").style.animation = "none"; //still no fade in
         },1000);
     }
+    document.getElementById("socials").style.opacity = "100%";
 
 };
 window.addEventListener('pageshow', reloadAnimation);

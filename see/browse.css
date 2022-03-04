@@ -168,10 +168,7 @@ a{
 }
 
 @media (max-aspect-ratio: 1/1){
-    #home{
-        background-color: #191919;
-        transition: all 0.3s;
-    }
+
     #navigation-bar{
         padding-left:calc(3vh * 2);
         width: calc(100% - (3vh * 2));
