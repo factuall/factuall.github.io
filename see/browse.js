@@ -22,6 +22,13 @@ function navInput(id){
     
 }
 
+function openLive(live){
+    contentHide(false);
+    setTimeout(()=>{
+        window.location.href = "/live/" + live;
+    },550);
+}
+
 if(window.location.hash == "") window.location.href = "/see/#about";
 
 function contentChange(){
