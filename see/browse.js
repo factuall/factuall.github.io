@@ -1,5 +1,6 @@
 let pageContainer = document.getElementById("page-container");
 var grid;
+let currentPage = "";
 
 function contentHide(down){
     for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
@@ -12,6 +13,7 @@ function navInput(id){
     console.log(id);
     if(id != "#home") {
         window.location.href = "/see/#"+id
+        currentPage = window.location.hash;
         contentChange();
     } else {
         contentHide(false);
@@ -29,7 +31,10 @@ function openLive(live){
     },550);
 }
 
-if(window.location.hash == "") window.location.href = "/see/#about";
+if(window.location.hash == "") {
+    window.location.href = "/see/#about";
+    currentPage = window.location.hash;
+}
 
 function contentChange(){
     if(grid != null){
@@ -105,3 +110,9 @@ window.addEventListener('resize', (e) =>{
         grid.style.top = 0-(scroll*1.61) + "px";
     }
 });
+
+function hashHandler() {
+    if(currentPage != window.location.hash) contentChange();
+}
+  
+window.addEventListener('hashchange', hashHandler, false);
