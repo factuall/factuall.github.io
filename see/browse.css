@@ -121,7 +121,7 @@ a{
 }
 
 .page-title{
-    font-size: 8vh;
+    font-size: 7vh;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -222,4 +222,34 @@ iframe {
 }
 #iframe-link{
     cursor: pointer;
+}
+
+.page-grid-cell-fill-container{
+    display: table;
+}
+.page-grid-cell-fill-main{
+    display: table-row;
+    height: 0px;
+}
+.page-grid-cell-fill-rest{
+    display: table-row;
+    position: relative;
+}
+.page-grid-cell-screens{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    gap: 2%;
+    margin:auto;
+
+}
+.center-element{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
