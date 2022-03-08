@@ -14,7 +14,8 @@ body{
 #main-container{
     width: 100%;
     font-size: 4vw;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
     
 }
 
@@ -25,7 +26,7 @@ body{
     color: #d6d6c3;
     overflow: hidden;
     animation: name-slide 0.8s forwards;
-    font-size: 5vw;
+    font-size: 6vw;
     letter-spacing: auto;
     transition: letter-spacing 0.2s;
     transition: all 0.5s;
@@ -69,21 +70,22 @@ body{
 }
 
 .navigation{
-    width: calc(3vh * 7);
+    width: calc(3vh * 5);
     line-height: 200%;
     background-color: #212121;
     color: #d6d6c3;
     text-align: center;
-    font-size: 2.5vh;
+    font-size: 2vh;
     position: relative;
     transition: width 0.2s;
     min-height: 0;
     border: 1px solid #66666666;
     border-radius: 0.3em;
+    z-index: 3;
 }
 
 .navigation:hover{
-    width: calc(3vh * 8);;
+    width: calc(3vh * 6);
     transition: width 0.2s;
 }
 
