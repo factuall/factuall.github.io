@@ -1,11 +1,22 @@
 let pageContainer = document.getElementById("page-container");
-var grid;
+var grid, normalScroll = false;
 let currentPage = "";
 
 function contentHide(down){
     for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
         const page = document.getElementById("page-grid").children[place];
-        page.style.animation = down ? "cell-slide-out forwards 0.7s" : "cell-slide-out-up forwards 0.7s";
+        if(normalScroll){ //adjust slide out animation for size of the article
+            var textNode = null;
+            let exitHeight = document.getElementsByClassName("page-grid-article-cell").length != 0 ? document.getElementsByClassName("page-grid-article-cell")[0].getBoundingClientRect().height+100 :
+            (document.getElementsByClassName("page-grid-cell").length + 1)*document.getElementsByClassName("page-grid-cell")[document.getElementsByClassName("page-grid-cell").length-1].getBoundingClientRect().height;
+            let keyFrames = '@keyframes cell-slide-out-article {'+
+            'from {top: 0}'+
+            'to {top: '+exitHeight+'px}}';
+            textNode = document.createTextNode(keyFrames);
+            document.getElementsByTagName("style")[0].appendChild(textNode);
+        }
+
+        page.style.animation = normalScroll ? "cell-slide-out-article forwards 0.7s" : down ? "cell-slide-out forwards 0.7s" : "cell-slide-out-up forwards 0.7s";
     }
 }
 
@@ -76,13 +87,37 @@ function displayPage() {
 
 function setUpPages(pageContainer){
     grid = document.getElementById("page-grid");
-    scroll = document.getElementById("page-grid").children.length[0].getBoundingClientRect().x - 10;
+    normalScroll = document.getElementsByClassName("page-grid-article-cell").length > 0 || window.innerWidth < window.innerHeight;
+    scroll = 0;
     grid.style.right = scroll + "px";
     grid.style.top = scroll + "px";
-    for (let place = 0; place < document.getElementById("page-grid").children.length.length; place++) {
-        const page = document.getElementById("page-grid").children.length[place];
+    for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
+        const page = document.getElementById("page-grid").children[place];
+        if(window.innerWidth < window.innerHeight) {
+            page.style.top = "120vh";
+            page.style.animation = "cell-slide-in-article forwards 0.7s";
+        }
         page.style.animationDelay = place / 10 + "s"; 
     }
+
+    let asd = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
+    console.log(asd.getClientRects()[0].x + asd.getClientRects()[0].width);
+
+    if(!normalScroll){
+        if(scroll < 0) scroll = 0;
+        if(window.innerWidth > window.innerHeight){
+            grid.style.right = scroll + "px";
+            grid.style.top = 5 + "vh";
+        }else{
+            grid.style.right = 0 + "px";
+            grid.style.top = 4.8 + "vh";
+        }
+    }else{
+        document.body.style.overflow = "visible";
+        grid.style.top = 4.8 + "vh";
+        
+    }
+    
 }
 
 
@@ -91,23 +126,30 @@ document.addEventListener("wheel", function (e) {
     if(scroll > 0 && e.deltaY < 0) scroll-=80;
     let asd = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
     console.log(asd.getClientRects()[0].x + asd.getClientRects()[0].width);
-    if(e.deltaY > 0 && (asd.getClientRects()[0].x + asd.getClientRects()[0].width) > window.innerWidth) scroll+=80;
-    if(scroll < 0) scroll = 0;
-    if(window.innerWidth > window.innerHeight){
-        grid.style.right = scroll + "px";
-        grid.style.top = 0 + "px";
+
+    if(!normalScroll){
+        if(e.deltaY > 0 && (asd.getClientRects()[0].x + asd.getClientRects()[0].width) > window.innerWidth) scroll+=80;
+        if(scroll < 0) scroll = 0;
+        if(window.innerWidth > window.innerHeight){
+            grid.style.right = scroll + "px";
+            grid.style.top = 5 + "vh";
+        }else{
+            grid.style.right = 0 + "px";
+            grid.style.top = 4.8 + "vh";
+        }
     }else{
-        grid.style.right = 0 + "px";
-        grid.style.top = 0-(scroll*1.61) + "px";
+        document.body.style.overflow = "visible";
+        grid.style.top = 4.8 + "vh";
+        
     }
+
 }, );
 window.addEventListener('resize', (e) =>{
     if(window.innerWidth > window.innerHeight){
         grid.style.right = scroll + "px";
-        grid.style.top = 0 + "px";
     }else{
-        grid.style.right = 0 + "px";
-        grid.style.top = 0-(scroll*1.61) + "px";
+        grid.style.top = 4.8 + "vh";
+
     }
 });
 

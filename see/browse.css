@@ -1,4 +1,11 @@
-
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
 
 body{
     margin: 0;
@@ -23,7 +30,7 @@ body{
 }
 
 #navigation-bar{
-    position: sticky;
+    position: fixed;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -80,8 +87,9 @@ a{
     height: 91.5vh;
     justify-content: center;
     transition: right 0.5s, top 0.5s;   
-    flex-shrink: 0;
+    flex-shrink: 0; 
     width: max-content;
+    top: 5vh;
 }
 
 .page-grid-cell{
@@ -95,18 +103,19 @@ a{
     animation: cell-slide-in forwards 0.8s;
 }
 
-.page-grid-horizontal-cell{
-    top: -100vh;
+.page-grid-article-cell{
+    top: 0vh;
     left: 50%;
     padding: 2vw;
     border-radius: 0.75vw;
     background-color: #242424;
     color: #d6d6c3;
     width: calc(60vw);
-    animation: cell-slide-in forwards 0.8s;
+    animation: cell-slide-in-article forwards 0.8s;
     position: absolute;
     -ms-transform: translate(-50%, 6vh);
     transform: translate(-50%, 6vh);
+    min-height: 85vh;
 }
 
 .page-grid-fullpage-cell{
@@ -133,7 +142,12 @@ a{
 }
 
 @keyframes cell-slide-in{
-    from{top: -100vh}
+    from{top: -100%}
+    to{top: 0}
+}
+
+@keyframes cell-slide-in-article{
+    from{top: 120vh}
     to{top: 0}
 }
 
@@ -152,23 +166,6 @@ a{
     to { opacity: 100%; }
 }
 
-#cv-click-me{
-    position: absolute;
-    z-index: 99;
-    color: white;
-    text-shadow: black 2px 2px 5px, black 2px 2px 5px;
-    width: inherit;
-    margin: auto;
-    text-align: center;
-    top: 45vh;
-    transition: all 0.3s;
-    font-size: 1em;
-}
-
-#cv-click-me:hover{
-    font-size: 1.1em;
-    transition: all 0.2s;
-}
 
 iframe {
     pointer-events: none;
@@ -205,4 +202,19 @@ iframe {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+@media (max-aspect-ratio: 1/1){
+    .page-grid{
+        flex-direction: column;
+        min-width: 100%;
+        font-size: 2.5vw;
+        justify-content: flex-start;
+    }
+    .page-grid-cell{
+        position: relative;
+        width: calc(100vw - 1em);
+        min-height: calc(90vw * 1.61);
+        box-sizing: border-box;
+    }
 }
