@@ -129,3 +129,43 @@ a{
     color: #d6d6c3;
 
 }
+
+#wip-disclaimer{
+    font-size: 2vh;
+    color: #f00;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    
+    animation: bounce 2s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes bounce{
+    0%{color: #a00;}
+    50%{color: #f00;}
+    100%{color: #a00;}
+}
+#socials{
+    display: flex;
+    gap: 0.3vw;
+    margin-top: 1vh;
+    justify-content: center;
+    opacity: 0%;
+    transition: opacity 0.5s;
+}
+.fa {
+    padding:0.2vw;
+    font-size: 1vw !important;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 20%;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    background: #000;
+    color: #d6d6c3;
+
+}
