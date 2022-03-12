@@ -7,8 +7,9 @@ function contentHide(down){
         const page = document.getElementById("page-grid").children[place];
         if(normalScroll){ //adjust slide out animation for size of the article
             var textNode = null;
-            let exitHeight = document.getElementsByClassName("page-grid-article-cell").length != 0 ? document.getElementsByClassName("page-grid-article-cell")[0].getBoundingClientRect().height+100 :
-            (document.getElementsByClassName("page-grid-cell").length + 1)*document.getElementsByClassName("page-grid-cell")[document.getElementsByClassName("page-grid-cell").length-1].getBoundingClientRect().height;
+            let exitHeight = document.getElementsByClassName("page-grid-article-cell").length != 0 ?
+                document.getElementsByClassName("page-grid-article-cell")[0].getBoundingClientRect().height+100 :
+                (document.getElementsByClassName("page-grid-cell").length + 1)*document.getElementsByClassName("page-grid-cell")[document.getElementsByClassName("page-grid-cell").length-1].getBoundingClientRect().height;
             let keyFrames = '@keyframes cell-slide-out-article {'+
             'from {top: 0}'+
             'to {top: '+exitHeight+'px}}';
@@ -80,7 +81,6 @@ function displayPage() {
         }
         xhttp.open("GET", file, true);
         xhttp.send();
-        
         return;
     }
 }
@@ -97,61 +97,36 @@ function setUpPages(pageContainer){
             page.style.top = "120vh";
             page.style.animation = "cell-slide-in-article forwards 0.7s";
         }
-        page.style.animationDelay = place / 10 + "s"; 
+        page.style.animationDelay = place / 15 + "s"; 
     }
-
-    let asd = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
-    console.log(asd.getClientRects()[0].x + asd.getClientRects()[0].width);
-
-    if(!normalScroll){
-        if(scroll < 0) scroll = 0;
-        if(window.innerWidth > window.innerHeight){
-            grid.style.right = scroll + "px";
-            grid.style.top = 5 + "vh";
-        }else{
-            grid.style.right = 0 + "px";
-            grid.style.top = 4.8 + "vh";
-        }
-    }else{
-        document.body.style.overflow = "visible";
-        grid.style.top = 4.8 + "vh";
-        
-    }
-    
+    updateScroll();
 }
 
 
 let scroll = 0;
 document.addEventListener("wheel", function (e) {
     if(scroll > 0 && e.deltaY < 0) scroll-=80;
-    let asd = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
-    console.log(asd.getClientRects()[0].x + asd.getClientRects()[0].width);
+    let last = document.getElementById("page-grid").children[document.getElementById("page-grid").children.length-1];
+    if(e.deltaY > 0 && (last.getClientRects()[0].x + last.getClientRects()[0].width) > window.innerWidth) scroll+=80;
+    updateScroll();
+}, );
+window.addEventListener('resize', (e) =>{
+    normalScroll = document.getElementsByClassName("page-grid-article-cell").length > 0 || window.innerWidth < window.innerHeight;
+    updateScroll();
+});
 
+function updateScroll(){
     if(!normalScroll){
-        if(e.deltaY > 0 && (asd.getClientRects()[0].x + asd.getClientRects()[0].width) > window.innerWidth) scroll+=80;
         if(scroll < 0) scroll = 0;
-        if(window.innerWidth > window.innerHeight){
-            grid.style.right = scroll + "px";
-            grid.style.top = 5 + "vh";
-        }else{
-            grid.style.right = 0 + "px";
-            grid.style.top = 4.8 + "vh";
-        }
+        grid.style.right = scroll + "px";
+        grid.style.top = 5 + "vh";
+        document.body.style.overflow = "hidden";
     }else{
         document.body.style.overflow = "visible";
         grid.style.top = 4.8 + "vh";
-        
+        grid.style.right = 0 + "vh";
     }
-
-}, );
-window.addEventListener('resize', (e) =>{
-    if(window.innerWidth > window.innerHeight){
-        grid.style.right = scroll + "px";
-    }else{
-        grid.style.top = 4.8 + "vh";
-
-    }
-});
+}
 
 function hashHandler() {
     if(currentPage != window.location.hash) contentChange();
