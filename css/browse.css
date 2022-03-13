@@ -38,31 +38,42 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.25vh;
-  background-color: #242424;
+  background-color: #1d1d1d;
   flex-direction: row;
   padding: 0.2vw 0;
   animation-delay: 0.2s;
   z-index: 2;
 }
 
-.navigation {
+.button {
   width: 15vh;
   line-height: 200%;
-  background-color: #212121;
-  color: #d6d6c3;
+  background-color: #282828;
+  color: #c2c2ac;
   text-align: center;
   font-size: 2vh;
   position: relative;
-  transition: width 0.2s;
+  transition: width 0.2s, border 0.2s;
   min-height: 0;
-  border: 1px solid #66666666;
+  border: 1px solid #66666699;
   border-radius: 0.3em;
   z-index: 3;
 }
+.button.primary {
+  background-color: #c2c2ac;
+  transition: background-color 0.2s, width 0.2s;
+  color: #282828;
+}
 
-.navigation:hover {
-  width: 18vh;
-  transition: width 0.2s;
+.button:hover {
+  width: 16.5vh;
+  transition: width 0.2s, border 0.2s;
+  border: 1px solid #999999;
+}
+.button:hover.primary {
+  background-color: #c7bf76;
+  transition: background-color 0.2s, width 0.2s;
+  color: #282828;
 }
 
 #home {
@@ -74,6 +85,15 @@ body {
 
 a {
   color: #c7bf76;
+}
+
+a.button-link {
+  color: #c2c2ac;
+  text-decoration: none;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  right: 0;
 }
 
 #page-container {
@@ -99,8 +119,8 @@ a {
   position: relative;
   padding: 2vw;
   border-radius: 0.75vw;
-  background-color: #242424;
-  color: #d6d6c3;
+  background-color: #1d1d1d;
+  color: #c2c2ac;
   width: 54.9vh;
   animation: cell-slide-in forwards 0.8s;
 }
@@ -110,8 +130,8 @@ a {
   left: 50%;
   padding: 2vw;
   border-radius: 0.75vw;
-  background-color: #242424;
-  color: #d6d6c3;
+  background-color: #1d1d1d;
+  color: #c2c2ac;
   width: 100%;
   max-width: 1000px;
   animation: cell-slide-in-article forwards 0.8s;
@@ -126,8 +146,8 @@ a {
   position: relative;
   padding: 2vw;
   border-radius: 0.75vw;
-  background-color: #242424;
-  color: #d6d6c3;
+  background-color: #1d1d1d;
+  color: #c2c2ac;
   width: 95vw;
   animation: cell-slide-in forwards 0.8s;
   overflow: visible;
@@ -141,7 +161,7 @@ a {
 }
 
 .page-subtitle {
-  margin-bottom: 0;
+  margin-top: 1em;
 }
 
 @keyframes cell-slide-in {
@@ -225,6 +245,15 @@ iframe {
   transform: translate(-50%, -50%);
 }
 
+.bottom-element {
+  margin: 0;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
 @media (max-aspect-ratio: 1/1) {
   .page-grid {
     flex-direction: column;
@@ -245,8 +274,8 @@ iframe {
     left: 50%;
     padding: 2vw;
     border-radius: 0.75vw;
-    background-color: #242424;
-    color: #d6d6c3;
+    background-color: #1d1d1d;
+    color: #c2c2ac;
     width: 90vw;
     animation: cell-slide-in-article forwards 0.8s;
     position: absolute;
