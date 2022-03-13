@@ -1,14 +1,21 @@
-
+$button-color: #282828;
+$button-hover-color: #181818;
+$body-color: #181818;
+$background-color: #1d1d1d;
+$font-color: #c2c2ac;
+$button-border-color: #66666699;
+$button-border-hover-color: #999999;
+$link-color: rgb(199, 191, 118);
 
 body{
     margin: 0;
     padding: 0;
-    color: #181818;
+    color: $body-color;
     overflow: hidden;
 }
 @keyframes fadeInBody {
-    from { background-color: #252525; }
-    to {background-color: #181818; }
+    from { background-color: $button-color; }
+    to {background-color: $body-color; }
 }
 
 #main-container{
@@ -23,7 +30,7 @@ body{
     margin-top: 25vh;
     text-align: center;
     height: 1em;
-    color: #d6d6c3;
+    color: $font-color;
     overflow: hidden;
     animation: name-slide 0.8s forwards;
     font-size: 6vw;
@@ -59,7 +66,7 @@ body{
     display: flex;
     justify-content: center;
     gap: 1.25vh;
-    background-color: #242424;
+    background-color: $background-color;
     flex-direction: row;
     padding: 0.2vw 0;
     animation: fadeIn 0.5s forwards;
@@ -72,21 +79,32 @@ body{
 .navigation{
     width: calc(3vh * 5);
     line-height: 200%;
-    background-color: #212121;
+    background-color: $button-color;
     color: #d6d6c3;
     text-align: center;
     font-size: 2vh;
     position: relative;
-    transition: width 0.2s;
+    transition: width 0.2s, border 0.2s;
     min-height: 0;
-    border: 1px solid #66666666;
+    border: 1px solid $button-border-color;
     border-radius: 0.3em;
     z-index: 3;
+    &.primary{
+        background-color: $font-color;
+        transition: background-color 0.2s, width 0.2s;
+        color: $button-color;
+    }
 }
 
 .navigation:hover{
-    width: calc(3vh * 6);
-    transition: width 0.2s;
+    width: calc(3vh * 5.5);
+    transition: width 0.2s, border 0.2s;
+    border: 1px solid $button-border-hover-color;
+    &.primary{
+        background-color: $link-color;
+        transition: background-color 0.2s, width 0.2s;
+        color: $button-color;
+    }
 }
 
 #home{
