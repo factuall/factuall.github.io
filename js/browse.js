@@ -1,6 +1,7 @@
 let pageContainer = document.getElementById("page-container");
 var grid, normalScroll = false;
 let currentPage = "";
+let scrollDown;
 
 function contentHide(down){
     for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
@@ -87,10 +88,12 @@ function displayPage() {
 
 function setUpPages(pageContainer){
     grid = document.getElementById("page-grid");
+    scrollDown = document.getElementById("scroll-down");
     normalScroll = document.getElementsByClassName("page-grid-article-cell").length > 0 || window.innerWidth < window.innerHeight;
     scroll = 0;
     grid.style.right = scroll + "px";
     grid.style.top = scroll + "px";
+    scrollDown.style.left = "calc(0.5em-"+scroll+"px)";
     for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
         const page = document.getElementById("page-grid").children[place];
         if(window.innerWidth < window.innerHeight) {
@@ -120,6 +123,7 @@ function updateScroll(){
         if(scroll < 0) scroll = 0;
         grid.style.right = scroll + "px";
         grid.style.top = 5 + "vh";
+        scrollDown.style.left = "calc(0.5em - "+scroll+"px)";
         document.body.style.overflow = "hidden";
     }else{
         document.body.style.overflow = "visible";
@@ -133,3 +137,25 @@ function hashHandler() {
 }
   
 window.addEventListener('hashchange', hashHandler, false);
+
+function watchVideo(vid){
+    let vidd = document.getElementById(vid);
+    vidd.parentElement.style.display = "block";
+    setTimeout(()=>{
+        vidd.parentElement.style.opacity = "100%";
+        
+    }, 10)
+    
+    vidd.play();
+    vidd.currentTime = 0;
+}
+
+function hideVideo(vid){
+    let vidd = document.getElementById(vid);
+    vidd.parentElement.style.opacity = "0%";
+    setTimeout(()=>{
+        vidd.parentElement.style.display = "none";
+        
+    }, 500);
+    vidd.pause();
+}

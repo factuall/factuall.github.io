@@ -154,14 +154,25 @@ a.button-link {
 }
 
 .page-title {
-  font-size: 4vh;
+  font-size: 6vh;
   margin-top: 0;
   font-weight: 700;
   margin-bottom: 0;
 }
 
 .page-subtitle {
-  margin-top: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 3vh;
+  font-weight: 500;
+}
+
+p {
+  font-weight: 300;
+  font-size: 2.5vh;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  color: #c2c2ac;
 }
 
 @keyframes cell-slide-in {
@@ -283,6 +294,9 @@ iframe {
     transform: translate(-50%, 6vh);
     min-height: 85vh;
   }
+}
+#scroll-down {
+  transition: left 0.5s;
 }
 
 /*# sourceMappingURL=browse.css.map */
