@@ -181,6 +181,7 @@ p{
     font-size: 2.5vh;
     margin-top: 0.5em;
     margin-bottom: 0;
+    color: $font-color;
 }
 
 @keyframes cell-slide-in{
@@ -282,4 +283,8 @@ iframe {
         transform: translate(-50%, 6vh);
         min-height: 85vh;
     }
+}
+
+#scroll-down{
+    transition: left 0.5s;
 }

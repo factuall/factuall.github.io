@@ -1,14 +1,11 @@
 <div class="page-grid" id="page-grid" [tyle fakjna tupc]>
     <div class="page-grid-cell page-grid-cell-fill-container" >
         <div class="page-grid-cell-fill-main">
-            <h1 class="page-title" style="text-align: center;">Sudoku</h1>
-            <p>Sudoku adapted to the use of touch screen. Includes mode selection and solve scoring. Work on Killer Sudoku mode is in progress.</p>
-            <p>Originally smartphones were the target platform but this version was adjusted to work with browser aspect ratio. <a href="https://github.com/factuall/Sudoku-Unity3D">Browse source code.</a></p></p>
-            <p>Used technologies:</p>
-            <ul>
-                <li>Unity</li>
-                <li>C# </li>
-            </ul>
+            <p class="page-title" style="text-align: center;">Sudoku</p>
+            <p>Sudoku written in C# in Unity Engine.</p>
+            <p>Initially, the game was designed for smartphones/touchscreen, but I slightly modified it to fit browsers. 
+                It includes Sudoku puzzle generation for the player to solve with scoring and mode selection menu.</p>
+            <p>Play Sudoku in the browser or <a href="https://github.com/factuall/Sudoku-Unity3D">Browse source code.</a></p>
         </div>
         <div class="page-grid-cell-fill-rest">
             <!-- <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> -->
@@ -25,18 +22,18 @@
     </div>
     <div class="page-grid-cell page-grid-cell-fill-container" >
         <div class="page-grid-cell-fill-main">
-            <h1 class="page-title" style="text-align: center;">Macro extension</h1>
-            <p>Browser extension for Chrome that can record your actions and perform them automatically</p>
-            <p>I built this to help when dealing with very repetitive tasks and allow to do multiple at a time. Below you can see showcase video with indev version.</p>
-            <p>No framework was used - plain JavaScript and a little bit of Google Chrome extensions API. <a href="https://github.com/factuall/Chrome-AUTO-TASK-Extension">Browse source code.</a></p>
+            <p class="page-title" style="text-align: center;">Macro extension</p>
+            <p>Browser extension for Chrome that can record your actions and perform them again for you.</p>
+            <p>Idea was to simplify very repetitive and redundant tasks with automation. Below you can see showcase video with indev version.</p>
+            <p><a href="https://github.com/factuall/Chrome-AUTO-TASK-Extension">Browse source code</a> or watch showcase video</p>
         </div>
         <div class="page-grid-cell-fill-rest">
             <!-- <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> -->
             <div class="bottom-element">
-                <!-- <div onclick="openLive('sudoku/')" class="button" style="position: relative; margin:auto; margin-bottom: 5%;">Run live demo</div> -->
+                <div onclick="watchVideo('extension')" class="button primary" style="position: relative; margin:auto; margin-bottom: 5%;">Watch video</div>
                 <div class="page-grid-cell-screens" style="flex-direction: column;">
                     <img src="/live/clickhelper1.png" style="position: relative; width: 200%;">
-                    <!-- <video src="/live/extension.mp4" controls="" style="width: 150%; height: 150%;"></video> -->
+                    
                     
                 </div>
             </div>
@@ -45,24 +42,42 @@
     </div>
     <div class="page-grid-cell page-grid-cell-fill-container" >
         <div class="page-grid-cell-fill-main">
-            <h1 class="page-title" style="text-align: center;">This website</h1>
-            <p>Made with pure HTML/CSS/JS - no frameworks. I created and maintain it fully myself.</p>
-            <p>Website is hosted with GitHub pages. <a href="https://github.com/factuall/factuall.github.io">Browse source code.</a> Production/development branch is public and available for you here: <a href="https://github.com/factuall/factuall.github.io/tree/dev">Dev branch.</a></p>
+            <p class="page-title" style="text-align: center;">This website</p>
+            <p>Made with HTML/JS/SCSS.</p>
+            <p>Website is hosted with GitHub pages, so there is no backend. <a href="https://github.com/factuall/factuall.github.io">Browse source code.</a></p>
+            <p>Production/development branch is public and available for you here: <a href="https://github.com/factuall/factuall.github.io/tree/dev">Dev branch.</a></p>
             
         </div>
         <div class="page-grid-cell-fill-rest">
+           
             <!-- <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> -->
-            <div class="bottom-element">
+            <div class="bottom-element" style="width:100%">
+                <div style="text-align: center; margin-bottom: 1%;">fun fact: there is domain with one "L" redirecting to this one.</div>
                 <!-- <div onclick="openLive('sudoku/')" class="button" style="position: relative; margin:auto; margin-bottom: 5%;">Run live demo</div> -->
                 <div class="page-grid-cell-screens" style="flex-direction: column;">
-                    <img src="/img/home.png" style="width: 200%;">
+                    <img src="/img/home.png" style="width: 100%;">
                     
                 </div>
             </div>
 
         </div>
     </div>
+    <div class="page-grid-cell page-grid-cell-fill-container" >
+        <div class="page-grid-cell-fill-main">
+            <p class="page-title" style="text-align: center;">More soon!</p>
+            <p>content shortage?!</p>
+        </div>
+        <div class="page-grid-cell-fill-rest">
+            <div class="bottom-element" style="width:100%">
+                <div class="page-grid-cell-screens" style="flex-direction: column;">     
+                </div>
+            </div> 
 
+        </div>
+    </div>
 
 </div>
-
+<p id="scroll-down" style="position: fixed; bottom: 0.5em;">Scroll down to see more.</p>
+<div style="position: fixed; width:100%; height: 100%; background-color: #00000088; top:0; opacity: 0%; transition: opacity 0.5s; display: none;" onclick="hideVideo('extension')">
+    <video src="/live/extension.mp4" id="extension" controls="" preload="none" style="position: absolute; max-width: 100%; max-height: 60;" class="center-element"></video>
+</div>
