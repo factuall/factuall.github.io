@@ -1,11 +1,12 @@
 function navInput(id){
-    console.log(id);
-    document.getElementById("main-container").toggleAttribute("shrink");
-    document.getElementById("full-name").toggleAttribute("shrink");
-    document.getElementById("socials").style.opacity = "0%";
-    setTimeout(()=>{
-        window.location.href = "/see/#"+id;
-    },500);
+    if(document.getElementById("full-name").style.animation == "0s ease 0s 1 normal none running none" || document.getElementById("full-name").style.animation == ""){
+        document.getElementById("main-container").toggleAttribute("shrink");
+        document.getElementById("full-name").toggleAttribute("shrink");
+        document.getElementById("socials").style.opacity = "0%";
+        setTimeout(()=>{
+            window.location.href = "/see/#"+id;
+        },500);
+    }
 }
 
 //handling going back or pressing home button
@@ -22,7 +23,7 @@ const reloadAnimation = () => {
         setTimeout(()=>{
             document.getElementById("full-name").removeAttribute("style"); //dont block fade out 
             document.getElementById("full-name").style.animation = "none"; //still no fade in
-        },1000);
+        },500);
     }
     document.getElementById("socials").style.opacity = "100%";
 

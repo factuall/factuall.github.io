@@ -1,5 +1,5 @@
 let pageContainer = document.getElementById("page-container");
-var grid, normalScroll = false;
+var grid, changingPage = false, normalScroll = false;
 let currentPage = "";
 let scrollDown;
 
@@ -24,6 +24,7 @@ function contentHide(down){
 
 function navInput(id){
     console.log(id);
+    if(changingPage) return;
     if(id != "#home") {
         window.location.href = "/see/#"+id
         currentPage = window.location.hash;
@@ -47,11 +48,13 @@ function openLive(live){
 if(window.location.hash == "") {
     window.location.href = "/see/#about";
     currentPage = window.location.hash;
+    changingPage = true;
 }
 
 function contentChange(){
     if(grid != null){
         contentHide(true);
+        changingPage = true;
         setTimeout(()=>{
             pageContainer.setAttribute("content-from", "/see/pages/" + window.location.hash.substring(1) + ".html");
             displayPage();
@@ -87,13 +90,18 @@ function displayPage() {
 }
 
 function setUpPages(pageContainer){
+    setTimeout(()=>{
+        changingPage = false;
+    },1000);
     grid = document.getElementById("page-grid");
     scrollDown = document.getElementById("scroll-down");
     normalScroll = document.getElementsByClassName("page-grid-article-cell").length > 0 || window.innerWidth < window.innerHeight;
     scroll = 0;
     grid.style.right = scroll + "px";
     grid.style.top = scroll + "px";
-    scrollDown.style.left = "calc(0.5em-"+scroll+"px)";
+    if(scrollDown != null)
+        scrollDown.style.left = "calc(0.5em-"+scroll+"px)";
+    
     for (let place = 0; place < document.getElementById("page-grid").children.length; place++) {
         const page = document.getElementById("page-grid").children[place];
         if(window.innerWidth < window.innerHeight) {
@@ -102,6 +110,7 @@ function setUpPages(pageContainer){
         }
         page.style.animationDelay = place / 15 + "s"; 
     }
+
     updateScroll();
 }
 
@@ -123,9 +132,15 @@ function updateScroll(){
         if(scroll < 0) scroll = 0;
         grid.style.right = scroll + "px";
         grid.style.top = 5 + "vh";
-        scrollDown.style.left = "calc(0.5em - "+scroll+"px)";
+        if(scrollDown != null){
+            scrollDown.style.left = "calc(0.5em - "+scroll+"px)";
+            scrollDown.style.display = "block";
+        }
         document.body.style.overflow = "hidden";
     }else{
+        if(scrollDown != null){
+            scrollDown.style.display = "none";
+        }
         document.body.style.overflow = "visible";
         grid.style.top = 4.8 + "vh";
         grid.style.right = 0 + "vh";
