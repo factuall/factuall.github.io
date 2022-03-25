@@ -6,6 +6,7 @@ $font-color: #c2c2ac;
 $button-border-color: #66666699;
 $button-border-hover-color: #999999;
 $link-color: rgb(199, 191, 118);
+$default-font: 'Oxygen', sans-serif;
 
 
 html {
@@ -23,13 +24,13 @@ body{
     overflow: hidden;
     background-color: $body-color;
     height: 100vh;
-    font-family: 'Oxygen', sans-serif;
+    font-family: $default-font;
 }
 
 #main-container{
     width: 100%;
     font-size: 2vw;
-    font-family: 'Oxygen', sans-serif;
+    font-family: $default-font;
     height: 100%;
 }
 
@@ -287,4 +288,33 @@ iframe {
 
 #scroll-down{
     transition: left 0.5s;
+}
+.fa {
+    padding:0.2vw;
+    font-size: 2vw !important;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 20%;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    background: #000;
+    color: #d6d6c3;
+
+}
+
+.text-input{
+    background-color: $button-color;
+    box-sizing: border-box;
+    border: 1px solid $button-border-color;
+    padding: 0.2em;
+    font-size: 2.5vh;
+    color: $font-color;
+    font-family: $default-font;
+    transition: border 0.2s;
+    margin: 0.2em;
+}
+
+.text-input:hover{
+    border: 1px solid $button-border-hover-color;
 }

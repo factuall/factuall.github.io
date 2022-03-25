@@ -299,4 +299,33 @@ iframe {
   transition: left 0.5s;
 }
 
+.fa {
+  padding: 0.2vw;
+  font-size: 2vw !important;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 20%;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  background: #000;
+  color: #d6d6c3;
+}
+
+.text-input {
+  background-color: #282828;
+  box-sizing: border-box;
+  border: 1px solid #66666699;
+  padding: 0.2em;
+  font-size: 2.5vh;
+  color: #c2c2ac;
+  font-family: "Oxygen", sans-serif;
+  transition: border 0.2s;
+  margin: 0.2em;
+}
+
+.text-input:hover {
+  border: 1px solid #999999;
+}
+
 /*# sourceMappingURL=browse.css.map */
