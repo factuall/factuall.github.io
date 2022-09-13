@@ -1,19 +1,23 @@
 import logo from './logo.svg';
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import Store from './Store';
 import { Context } from './Store';
 import './App.css';
 
-const NavBar = () =>{
+let scroll = 0;
+
+
+
+function NavBar() {
 
   const [state, setState] = useContext(Context);
-  const handleClick = (val) =>{
-    setState({page: val});
-  }
-  return(
+  const handleClick = (val) => {
+    setState({ page: val });
+  };
+  return (
     <>
-      <button class="Home" style={state.page>0 ? {opacity: "100%"} : {opacity: "0%"}}
-              onClick={() => handleClick(0)}>🏠</button>
+      <button class={"Home" + (state.page == 0 ? " Hide" : " Show")} 
+        onClick={() => handleClick(0)}>🏠</button>
       <button class="nav" onClick={() => handleClick(1)}>about</button>
       <button class="nav" onClick={() => handleClick(2)}>portfolio</button>
       <button class="nav" onClick={() => handleClick(3)}>resume</button>
@@ -21,17 +25,54 @@ const NavBar = () =>{
     </>);
 }
 
+const Page = (props) =>{
+  const [state, setState] = useContext(Context);
+  const [show, setShow] = useState("");
+  useEffect(()=>{
+    setShow(props.index == state.page);
+  }, [state]);
+  return(<>
+      <div className={'Page '+show}>{props.children}</div>
+  </>);
+}
+
+const ScrollingPages = () =>{
+  return(<>
+    <div className="ScrollingPages">
+      </div>
+  </>);
+}
+
+const ScrollingPage = () =>{
+  return(<>
+    <div className="ScrollingPage">{scroll}</div>
+  </>);
+}
+
+const OnePage = ({ children }) => {
+  return(
+    <div className="OnePage">{children}</div>
+  );
+}
+
+
 const WebContent = () => {
   const [state, setState] = useContext(Context);
+  const [exiting, setExiting] = useState({page: 0});
+  useEffect(()=>{
+    setTimeout(()=>{setExiting(state)}, 800);
+  }, [state]);
   return (
     <div>
       <div class="NameHolder">
 
-      <p class={state.page == 0 ?  "FullName" : "FullName FullName-Hide"}>Adrian Nieściur</p>
+      <p class={state.page == 0 ?  "FullName Show" : "FullName Hide"}>Adrian Nieściur</p>
       </div>
-      <div class={state.page > 0 ? "NavBar" : "NavBar NavBar-Down"}> 
+      <div class={state.page > 0 ? "NavBar" : "NavBar Down"}> 
       <NavBar></NavBar>  
       </div>
+      {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage>about</OnePage></Page> }
+      {(state.page == 2 || exiting.page == 2) && <Page index="2"><OnePage>portfolio</OnePage></Page> }
     </div>
   );
 
@@ -44,7 +85,6 @@ function App() {
       <header className="App-header">
         <Store>
         <WebContent></WebContent>
-
         </Store>
       </header>
     </div>

@@ -8,12 +8,16 @@ $button-border-hover-color: #999999;
 $link-color: rgb(199, 191, 118);
 
 .App{
+  color: $font-color;
   margin: 0;
   padding: 0;
   color: $body-color;
   background-color: $body-color;
   height: 100vh;
-  overflow: hidden;
+}
+
+body{ 
+  overflow: hidden; 
 }
 
 button{
@@ -44,8 +48,14 @@ button{
   left: 0.2vw;
   width: calc(3vh * 2);
   z-index: 4;
-  transition: opacity 0.2s;
-  opacity: 100%;
+  &.Show{
+    opacity: 100%;
+    transition: opacity 0.2s;
+  }
+  &.Hide{
+    opacity: 0%;
+    transition: opacity 0.2s;
+  }
 }
 
 .NavBar{
@@ -58,30 +68,92 @@ button{
   background-color: $background-color;
   flex-direction: row;
   padding: 0.2vw 0;
+  z-index: 1000;
   transition: top 0.5s;
-  &.NavBar-Down{
+  &.Down{
     top: 45vh;
   }
 }
 
+.ScrollingPages{
+  font-size: 1.8vh;
+  position: relative;
+  display: flex;
+  gap: 0.5em;
+  padding: 0.5em;
+  height: 91.5vh;
+  justify-content: center;
+  transition: right 0.5s, top 0.5s;   
+  flex-shrink: 0; 
+  width: max-content;
+  top: 5vh;
+}
+
+.ScrollingPage{
+  position: relative;
+  padding: 2vw;
+  border-radius: 0.75vw;
+  background-color: $background-color;
+  color: $font-color;
+  width: calc(90vh * 0.61);
+  animation: cell-slide-in forwards 0.8s;
+}
+
+.Page{
+  top: -100vh;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  &.true{
+    top: 0vh;
+    transition: top 0.8s;
+  }
+  &.false{
+    top: 100vh;
+    transition: top 0.8s;
+  }
+}
+
+.OnePage{
+  left: 50%;
+  padding: 2vw;
+  border-radius: 0.75vw;
+  background-color: $background-color;
+  color: $font-color;
+  width: 100%;
+  max-width: 1000px;
+  animation: cell-slide-in-article forwards 0.8s;
+  position: absolute;
+  -ms-transform: translate(-50%, 6vh);
+  transform: translate(-50%, 6vh);
+  min-height: 85vh;
+  transition: top 1s;
+  top: 0vh;
+}
+
 .FullName{
-  top: calc(45vh - 1em);
   position: fixed;
   text-align: center;
   width: 100%;
   color: $font-color;
   font-size: 8vw;
   letter-spacing: auto;
-  opacity: 100%;
   transition: all 0.5s;
   margin: 0;
   line-height: 100%;
+  z-index: 100;
   &:hover{
     letter-spacing: 0.02em;
     transition: letter-spacing 0.2s;
   }
-  &.FullName-Hide{
+  &.Hide{
     opacity: 0;
     top: -6vw;
+    transition: all 0.5s;
+  }
+  &.Show{
+    top: calc(45vh - 1em);
+    opacity: 100%;
+    transition: all 0.5s;
   }
 }
