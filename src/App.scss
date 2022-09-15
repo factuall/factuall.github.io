@@ -116,17 +116,18 @@ button{
 
 .OnePage{
   left: 50%;
-  padding: 2vw;
+  padding: 3vh;
   border-radius: 0.75vw;
   background-color: $background-color;
   color: $font-color;
-  width: 100%;
+  width: 90vw;
   max-width: 1000px;
   animation: cell-slide-in-article forwards 0.8s;
   position: absolute;
   -ms-transform: translate(-50%, 6vh);
   transform: translate(-50%, 6vh);
   min-height: 85vh;
+  max-height: 86vh;
   transition: top 1s;
   top: 0vh;
 }

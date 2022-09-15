@@ -1,0 +1,97 @@
+$button-color: #282828;
+$button-hover-color: #181818;
+$body-color: #181818;
+$background-color: #1d1d1d;
+$font-color: #c2c2ac;
+$button-border-color: #66666699;
+$button-border-hover-color: #999999;
+$link-color: rgb(199, 191, 118);
+$default-font: 'Oxygen', sans-serif;
+
+p{
+    font-family: $default-font;
+    font-weight: 300;
+    font-size: 2.5vh;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    color: $font-color;
+}
+
+.button{
+    font-family: $default-font;
+    width: calc(3vh * 5);
+    line-height: 200%;
+    background-color: $button-color;
+    color: $font-color;
+    text-align: center;
+    font-size: 2vh;
+    position: relative;
+    transition: width 0.2s, border 0.2s;
+    min-height: 0;
+    border: 1px solid $button-border-color;
+    border-radius: 0.3em;
+    z-index: 3;
+    &.primary{
+        background-color: $font-color;
+        transition: background-color 0.2s, width 0.2s;
+        color: $button-color;
+    }
+}
+
+.button:hover{
+    font-family: $default-font;
+    width: calc(3vh * 5.5);
+    transition: width 0.2s, border 0.2s;
+    border: 1px solid $button-border-hover-color;
+    &.primary{
+        background-color: $link-color;
+        transition: background-color 0.2s, width 0.2s;
+        color: $button-color;
+    }
+}
+
+a{
+    color: $link-color;
+    font-family: $default-font;
+}
+
+a.button-link{
+    color: $font-color;
+    text-decoration: none;
+    position: absolute; 
+    min-width: 100%; 
+    min-height: 100%; 
+    right: 0;
+    font-family: $default-font;
+    
+}
+
+.title{
+    font-size: 6vh;
+    margin-top: 0;
+    font-weight: 700;
+    margin-bottom: 0;
+    font-family: $default-font;
+}
+
+.subtitle{
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 3vh;
+    font-weight: 500;
+    font-family: $default-font;
+}
+
+.fa {
+    padding:0.2vw;
+    font-size: 2vw !important;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 20%;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    background: #000;
+    color: #d6d6c3;
+
+}

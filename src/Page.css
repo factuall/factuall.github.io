@@ -1,0 +1,85 @@
+p {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 300;
+  font-size: 2.5vh;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  color: #c2c2ac;
+}
+
+.button {
+  font-family: "Oxygen", sans-serif;
+  width: 15vh;
+  line-height: 200%;
+  background-color: #282828;
+  color: #c2c2ac;
+  text-align: center;
+  font-size: 2vh;
+  position: relative;
+  transition: width 0.2s, border 0.2s;
+  min-height: 0;
+  border: 1px solid rgba(102, 102, 102, 0.6);
+  border-radius: 0.3em;
+  z-index: 3;
+}
+.button.primary {
+  background-color: #c2c2ac;
+  transition: background-color 0.2s, width 0.2s;
+  color: #282828;
+}
+
+.button:hover {
+  font-family: "Oxygen", sans-serif;
+  width: 16.5vh;
+  transition: width 0.2s, border 0.2s;
+  border: 1px solid #999999;
+}
+.button:hover.primary {
+  background-color: rgb(199, 191, 118);
+  transition: background-color 0.2s, width 0.2s;
+  color: #282828;
+}
+
+a {
+  color: rgb(199, 191, 118);
+  font-family: "Oxygen", sans-serif;
+}
+
+a.button-link {
+  color: #c2c2ac;
+  text-decoration: none;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  right: 0;
+  font-family: "Oxygen", sans-serif;
+}
+
+.title {
+  font-size: 6vh;
+  margin-top: 0;
+  font-weight: 700;
+  margin-bottom: 0;
+  font-family: "Oxygen", sans-serif;
+}
+
+.subtitle {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 3vh;
+  font-weight: 500;
+  font-family: "Oxygen", sans-serif;
+}
+
+.fa {
+  padding: 0.2vw;
+  font-size: 2vw !important;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 20%;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  background: #000;
+  color: #d6d6c3;
+}/*# sourceMappingURL=Page.css.map */

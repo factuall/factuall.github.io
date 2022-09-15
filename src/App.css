@@ -109,17 +109,18 @@ button:hover.nav {
 
 .OnePage {
   left: 50%;
-  padding: 2vw;
+  padding: 3vh;
   border-radius: 0.75vw;
   background-color: #1d1d1d;
   color: #c2c2ac;
-  width: 100%;
+  width: 90vw;
   max-width: 1000px;
   -webkit-animation: cell-slide-in-article forwards 0.8s;
           animation: cell-slide-in-article forwards 0.8s;
   position: absolute;
   transform: translate(-50%, 6vh);
   min-height: 85vh;
+  max-height: 86vh;
   transition: top 1s;
   top: 0vh;
 }

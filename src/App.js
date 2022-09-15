@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import Store from './Store';
 import { Context } from './Store';
 import './App.css';
+import AboutPage from './About';
 
 let scroll = 0;
 
@@ -71,7 +71,7 @@ const WebContent = () => {
       <div class={state.page > 0 ? "NavBar" : "NavBar Down"}> 
       <NavBar></NavBar>  
       </div>
-      {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage>about</OnePage></Page> }
+      {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage><AboutPage></AboutPage></OnePage></Page> }
       {(state.page == 2 || exiting.page == 2) && <Page index="2"><OnePage>portfolio</OnePage></Page> }
     </div>
   );
