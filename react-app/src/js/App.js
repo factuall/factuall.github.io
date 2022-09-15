@@ -3,6 +3,7 @@ import Store from './Store';
 import { Context } from './Store';
 import '../css/App.css';
 import AboutPage from './pages/About';
+import ResumePage from './pages/Resume';
 
 let scroll = 0;
 
@@ -73,6 +74,7 @@ const WebContent = () => {
       </div>
       {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage><AboutPage></AboutPage></OnePage></Page> }
       {(state.page == 2 || exiting.page == 2) && <Page index="2"><OnePage>portfolio</OnePage></Page> }
+      {(state.page == 3 || exiting.page == 3) && <Page index="3"><OnePage><ResumePage></ResumePage></OnePage></Page> }
     </div>
   );
 
