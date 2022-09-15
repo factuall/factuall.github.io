@@ -48,6 +48,19 @@ button:hover.nav {
   transition: opacity 0.2s;
 }
 
+.TopObstruction {
+  z-index: 8888;
+  position: fixed;
+  width: 100%;
+  min-height: 0vh;
+  top: 0px;
+  background-color: #181818;
+  transition: min-height 0.5s;
+}
+.TopObstruction.Down {
+  min-height: 45vh;
+}
+
 .NavBar {
   width: 100%;
   display: flex;
@@ -135,7 +148,7 @@ button:hover.nav {
   transition: all 0.5s;
   margin: 0;
   line-height: 100%;
-  z-index: 100;
+  z-index: 9000;
 }
 .FullName:hover {
   letter-spacing: 0.02em;
@@ -143,7 +156,7 @@ button:hover.nav {
 }
 .FullName.Hide {
   opacity: 0;
-  top: -6vw;
+  top: -8vw;
   transition: all 0.5s;
 }
 .FullName.Show {

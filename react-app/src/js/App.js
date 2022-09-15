@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
 import Store from './Store';
 import { Context } from './Store';
-import './App.css';
-import AboutPage from './About';
+import '../css/App.css';
+import AboutPage from './pages/About';
 
 let scroll = 0;
 
@@ -64,11 +64,11 @@ const WebContent = () => {
   }, [state]);
   return (
     <div>
-      <div class="NameHolder">
-
-      <p class={state.page == 0 ?  "FullName Show" : "FullName Hide"}>Adrian Nieściur</p>
+      <div className="NameHolder">
+        <p className={state.page == 0 ?  "FullName Show" : "FullName Hide"}>Adrian Nieściur</p>
       </div>
-      <div class={state.page > 0 ? "NavBar" : "NavBar Down"}> 
+      <div className={state.page > 0 ? "TopObstruction" : "TopObstruction Down"}></div>
+      <div className={state.page > 0 ? "NavBar" : "NavBar Down"}> 
       <NavBar></NavBar>  
       </div>
       {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage><AboutPage></AboutPage></OnePage></Page> }

@@ -1,10 +1,7 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
-import Store from './Store';
-import { Context } from './Store';
-import { OnePage } from './App.js'
-import './Page.css';
-import gif from './assets/development.gif';
-import freelancer from './assets/freelancer.png';
+import React from 'react';
+import '../../css/Page.css';
+import gif from '../../assets/development.gif';
+import freelancer from '../../assets/freelancer.png';
 
 function AboutPage() {
     return(<div>

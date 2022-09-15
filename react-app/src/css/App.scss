@@ -58,6 +58,19 @@ button{
   }
 }
 
+.TopObstruction{
+  z-index: 8888;
+  position: fixed;
+  width: 100%;
+  min-height: 0vh;
+  top: 0px;
+  background-color: $body-color;
+  transition: min-height 0.5s;
+  &.Down{
+    min-height: 45vh;
+  }
+}
+
 .NavBar{
   width: 100%;
   display: flex;
@@ -142,14 +155,14 @@ button{
   transition: all 0.5s;
   margin: 0;
   line-height: 100%;
-  z-index: 100;
+  z-index: 9000;
   &:hover{
     letter-spacing: 0.02em;
     transition: letter-spacing 0.2s;
   }
   &.Hide{
     opacity: 0;
-    top: -6vw;
+    top: -8vw;
     transition: all 0.5s;
   }
   &.Show{
@@ -158,3 +171,4 @@ button{
     transition: all 0.5s;
   }
 }
+
