@@ -96,7 +96,7 @@ button{
   padding: 0.5em;
   height: 91.5vh;
   justify-content: center;
-  transition: right 0.5s, top 0.5s;   
+  transition: right 0.5s, top 0.5s, left 0.5s;   
   flex-shrink: 0; 
   width: max-content;
   top: 5vh;
@@ -108,7 +108,6 @@ button{
   border-radius: 0.75vw;
   background-color: $background-color;
   color: $font-color;
-  overflow: scroll;
   width: calc(90vh * 0.61);
   animation: cell-slide-in forwards 0.8s;
 }

@@ -86,7 +86,7 @@ button:hover.nav {
   padding: 0.5em;
   height: 91.5vh;
   justify-content: center;
-  transition: right 0.5s, top 0.5s;
+  transition: right 0.5s, top 0.5s, left 0.5s;
   flex-shrink: 0;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -100,7 +100,6 @@ button:hover.nav {
   border-radius: 0.75vw;
   background-color: #1d1d1d;
   color: #c2c2ac;
-  overflow: scroll;
   width: 54.9vh;
   -webkit-animation: cell-slide-in forwards 0.8s;
           animation: cell-slide-in forwards 0.8s;

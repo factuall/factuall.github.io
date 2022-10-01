@@ -34,13 +34,28 @@ const Page = (props) =>{
 }
 
 const ScrollingPages = () =>{
-  const [scrollValue, setScrollValue] = useState({value: 0});
+  const container = useRef(null);
+  const [scroll, setScroll] = useState({x: 0});
   var scrollableElement = document.body; 
   scrollableElement.addEventListener('wheel', (event)  => {
-    setScrollValue({value: scrollValue.value + event.wheelDelta});
+    //scroll with range check
+    let targetScroll = scroll.x + event.wheelDelta;
+    let containerWidth = (container.current ? container.current.offsetWidth : 0);
+    if(targetScroll > 0){ 
+      setScroll({x: 0}); 
+    }else if((window.innerWidth - containerWidth - targetScroll) > 0){
+      setScroll({x: -containerWidth + window.innerWidth})
+    }else{
+      setScroll({x: targetScroll});
+    }
+    
   });
   return(<>
-    <div className="ScrollingPages">
+    <div className="ScrollingPages" ref={container} style={{left: scroll.x}}>
+      <ScrollingPage></ScrollingPage>
+      <ScrollingPage></ScrollingPage>
+      <ScrollingPage></ScrollingPage>
+      <ScrollingPage></ScrollingPage>
       <ScrollingPage></ScrollingPage>
     </div>
   </>);
