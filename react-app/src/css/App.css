@@ -100,6 +100,7 @@ button:hover.nav {
   border-radius: 0.75vw;
   background-color: #1d1d1d;
   color: #c2c2ac;
+  overflow: scroll;
   width: 54.9vh;
   -webkit-animation: cell-slide-in forwards 0.8s;
           animation: cell-slide-in forwards 0.8s;

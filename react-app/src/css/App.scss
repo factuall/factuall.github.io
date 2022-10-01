@@ -108,6 +108,7 @@ button{
   border-radius: 0.75vw;
   background-color: $background-color;
   color: $font-color;
+  overflow: scroll;
   width: calc(90vh * 0.61);
   animation: cell-slide-in forwards 0.8s;
 }
