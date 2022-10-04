@@ -4,6 +4,7 @@ import { Context } from './Store';
 import '../css/App.css';
 import AboutPage from './pages/About';
 import ResumePage from './pages/Resume';
+import PortfolioPage from './pages/Portfolio';
 
 function NavBar() {
 
@@ -33,7 +34,7 @@ const Page = (props) =>{
   </>);
 }
 
-const ScrollingPages = () =>{
+const ScrollingPages = ({children}) =>{
   const container = useRef(null);
   const [scroll, setScroll] = useState({x: 0});
   var scrollableElement = document.body; 
@@ -52,25 +53,7 @@ const ScrollingPages = () =>{
   });
   return(<>
     <div className="ScrollingPages" ref={container} style={{left: scroll.x}}>
-      <ScrollingPage></ScrollingPage>
-      <ScrollingPage></ScrollingPage>
-      <ScrollingPage></ScrollingPage>
-      <ScrollingPage></ScrollingPage>
-      <ScrollingPage></ScrollingPage>
-    </div>
-  </>);
-}
-
-const ScrollingPage = (props) =>{
-  return(<>
-    <div className="ScrollingPage">
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
-      <p>content</p>
+      {children}
     </div>
   </>);
 }
@@ -97,7 +80,7 @@ const WebContent = () => {
       <NavBar></NavBar>  
       </div>
       {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage><AboutPage></AboutPage></OnePage></Page> }
-      {(state.page == 2 || exiting.page == 2) && <Page index="2"><ScrollingPages></ScrollingPages></Page> }
+      {(state.page == 2 || exiting.page == 2) && <Page index="2"><ScrollingPages><PortfolioPage></PortfolioPage></ScrollingPages></Page> }
       {(state.page == 3 || exiting.page == 3) && <Page index="3"><OnePage><ResumePage></ResumePage></OnePage></Page> }
     </div>
   );

@@ -82,4 +82,38 @@ a.button-link {
   position: relative;
   background: #000;
   color: #d6d6c3;
+}
+
+.page-grid-cell-fill-container {
+  display: table;
+  min-height: 100%;
+}
+
+.page-grid-cell-fill-main {
+  display: table-row;
+  height: 0px;
+}
+
+.page-grid-cell-fill-rest {
+  display: table-row;
+  position: relative;
+  min-height: 100%;
+}
+
+.bottom-element {
+  margin: 0;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.page-grid-cell-screens {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  gap: 2%;
+  margin: auto;
 }/*# sourceMappingURL=Page.css.map */
