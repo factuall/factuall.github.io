@@ -1,4 +1,13 @@
 import '../../css/Page.css';
+import imgSudokuA from "../../assets/sudoku1.png";
+import imgSudokuB from "../../assets/sudoku2.png";
+import imgExtension from "../../assets/clickhelper1.png";
+import imgHome from "../../assets/home.png";
+import imgCalc from "../../assets/calc.png"
+import imgTwitter from "../../assets/twitter.png";
+import {useState} from 'react';
+import React from 'react';
+import vidMacro from "../../assets/extension.mp4"
 function ScrollingPage({children}){
     return(<>
       <div className="ScrollingPage">
@@ -6,8 +15,12 @@ function ScrollingPage({children}){
       </div>
     </>);
   }
-function PortfolioPage() {
-    return(<>
+  function PortfolioPage() {
+      const [isOpen, setOpen] = useState(false);
+      return(<>
+        <div style={{display: isOpen ? "flexx" : "none"}} className="video-showcase" onClick={()=>{setOpen(false)}}>
+            <video src={vidMacro} autoPlay className="video-box" controls></video>
+        </div>
         <ScrollingPage>
             <div class="page-grid-cell-fill-container">
                     
@@ -21,11 +34,11 @@ function PortfolioPage() {
                 <div class="page-grid-cell-fill-rest">
                     <div class="bottom-element">
                         <div onClick={console.log('')} class="button primary" style={{position: 'relative', margin:'auto', marginBottom: '5%'}}>
-                            Run live demo
+                            Play Online - Soon
                         </div>
                         <div class="page-grid-cell-screens">
-                            <img src="/live/sudoku2.png" style={{width: '100%', height: '100%'}}></img>
-                            <img src="/live/sudoku1.png" style={{width: '100%', height: '100%'}}></img>
+                            <img src={imgSudokuA} style={{width: '100%', height: '100%'}}></img>
+                            <img src={imgSudokuB} style={{width: '100%', height: '100%'}}></img>
                         </div>
                         
                     </div>
@@ -47,7 +60,7 @@ function PortfolioPage() {
                 {/* <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> */}
                 <div className="bottom-element">
                 <div
-                    onclick="watchVideo('extension')"
+                    onClick={()=>{setOpen(true)}}
                     className="button primary"
                     style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
                 >
@@ -58,7 +71,7 @@ function PortfolioPage() {
                     style={{ flexDirection: "column" }}
                 >
                     <img
-                    src="/live/clickhelper1.png"
+                    src={imgExtension}
                     style={{ position: "relative", width: "200%" }}
                     />
                 </div>
@@ -73,19 +86,14 @@ function PortfolioPage() {
                 <p className="title" style={{ textAlign: "center" }}>
                     This website
                 </p>
-                <p>Made with HTML/JS/SCSS.</p>
                 <p>
                     Website is hosted with GitHub pages, so there is no backend.{" "}
                     <a href="https://github.com/factuall/factuall.github.io">
                     Browse source code.
                     </a>
                 </p>
-                <p>
-                    Production/development branch is public and available for you here:{" "}
-                    <a href="https://github.com/factuall/factuall.github.io/tree/dev">
-                    Dev branch.
-                    </a>
-                </p>
+                <p><a href="https://github.com/factuall/factuall.github.io/tree/react">React version</a>: You are right now browsing this version - React + SASS</p>
+                <p><a href="https://github.com/factuall/factuall.github.io/tree/original-static-version">Static version</a>: HTML+JS+CSS(SASS) - This was original, discontinued version of this website</p>
                 </div>
                 <div className="page-grid-cell-fill-rest">
                 {/* <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> */}
@@ -98,36 +106,7 @@ function PortfolioPage() {
                     className="page-grid-cell-screens"
                     style={{ flexDirection: "column" }}
                     >
-                    <img src="/img/home.png" style={{ width: "100%" }} />
-                    </div>
-                </div>
-                </div>
-            </div>
-        </ScrollingPage>
-        <ScrollingPage>
-            <div className="page-grid-cell-fill-container">
-                <div className="page-grid-cell-fill-main">
-                <p className="title" style={{ textAlign: "center" }}>
-                    Optimizer EN-&gt;PL translation
-                </p>
-                <p>
-                    Optimizer is an{" "}
-                    <a href="https://github.com/hellzerg/optimizer">open-source</a>{" "}
-                    application used to configure Windows for performance created by{" "}
-                    <a href="https://github.com/hellzerg">helizerg</a>.{" "}
-                </p>
-                <p>
-                    My translation from English to Polish made into software's official
-                    master repository and it's now available in Polish
-                </p>
-                </div>
-                <div className="page-grid-cell-fill-rest">
-                <div className="bottom-element" style={{ width: "100%" }}>
-                    <div
-                    className="page-grid-cell-screens"
-                    style={{ flexDirection: "column" }}
-                    >
-                    <img src="/img/optimizer.png" style={{ width: "100%" }} />
+                    <img src={imgHome} style={{ width: "100%" }} />
                     </div>
                 </div>
                 </div>
@@ -147,7 +126,7 @@ function PortfolioPage() {
                 </p>
                 <p>
                     It's hosted on this website, so source code can be found inside of its
-                    repo. (3rd portfolio entry)
+                    repo. 
                 </p>
                 </div>
                 <div className="page-grid-cell-fill-rest">
@@ -158,14 +137,14 @@ function PortfolioPage() {
                         className="button primary"
                         style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
                     >
-                        English version
+                        React Port - Soon
                     </div>
                     <div
                         onclick="openLive('drinkcalcpl/')"
                         className="button primary"
                         style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
                     >
-                        Polish version
+                        React Port - Soon
                     </div>
                     </div>
                     <div
@@ -173,7 +152,7 @@ function PortfolioPage() {
                     style={{ flexDirection: "column" }}
                     >
                     <img
-                        src="/img/calc.png"
+                        src={imgCalc}
                         style={{ width: "70%", filter: "drop-shadow(0 0 0.3rem black)" }}
                     />
                     </div>
@@ -181,7 +160,39 @@ function PortfolioPage() {
                 </div>
             </div>
         </ScrollingPage>
+        <ScrollingPage>
+            <div className="page-grid-cell-fill-container">
+                <div className="page-grid-cell-fill-main">
+                <p className="title" style={{ textAlign: "center" }}>
+                    Twitter Bot
+                </p>
+                <p>
+                    Made with node.js and Twitter API notifies on <a href="https://twitter.com/WhatsEpicNow">@WhatsEpicNow</a> profile about free games available on Epic Games Store. 
+                </p>
+                <p>
+                    Hopefully it will support Steam free games somewhere in the future.  
+                </p>
+                <p><a href="https://github.com/factuall/WhatsEpicNow">Browse source code</a> on GitHub.</p>
+                <p>
+            
+                </p>
+                </div>
+                <div className="page-grid-cell-fill-rest">
+                <div className="bottom-element" style={{ width: "100%" }}>
 
+                    <div
+                    className="page-grid-cell-screens"
+                    style={{ flexDirection: "column" }}
+                    >
+                    <img
+                        src={imgTwitter}
+                        style={{ width: "100%", filter: "drop-shadow(0 0 0.3rem black)" }}
+                    />
+                    </div>
+                </div>
+                </div>
+            </div>
+        </ScrollingPage>
     </>);
 }
 

@@ -8,6 +8,7 @@ $button-border-hover-color: #999999;
 $link-color: rgb(199, 191, 118);
 $default-font: 'Oxygen', sans-serif;
 
+
 p{
     font-family: $default-font;
     font-weight: 300;
@@ -19,7 +20,7 @@ p{
 
 .button{
     font-family: $default-font;
-    width: calc(3vh * 5);
+    width: calc(3vh * 6);
     line-height: 200%;
     background-color: $button-color;
     color: $font-color;
@@ -127,4 +128,36 @@ a.button-link{
     gap: 2%;
     margin:auto;
 
+}
+.text-input{
+    background-color: $button-color;
+    box-sizing: border-box;
+    border: 1px solid $button-border-color;
+    padding: 0.2em;
+    font-size: 2.5vh;
+    color: $font-color;
+    font-family: $default-font;
+    transition: border 0.2s;
+    margin: 0.2em;
+}
+
+.text-input:hover{
+    border: 1px solid $button-border-hover-color;
+}
+
+.video-showcase{
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000088;
+    z-index: 500;
+    position: fixed;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-box{
+    transform:scale(70%,70%);
+    display: grid;
+    
 }

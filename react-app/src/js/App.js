@@ -5,6 +5,7 @@ import '../css/App.css';
 import AboutPage from './pages/About';
 import ResumePage from './pages/Resume';
 import PortfolioPage from './pages/Portfolio';
+import ContactPage from './pages/Contact';
 
 function NavBar() {
 
@@ -82,6 +83,7 @@ const WebContent = () => {
       {(state.page == 1 || exiting.page == 1) && <Page index="1"><OnePage><AboutPage></AboutPage></OnePage></Page> }
       {(state.page == 2 || exiting.page == 2) && <Page index="2"><ScrollingPages><PortfolioPage></PortfolioPage></ScrollingPages></Page> }
       {(state.page == 3 || exiting.page == 3) && <Page index="3"><OnePage><ResumePage></ResumePage></OnePage></Page> }
+      {(state.page == 4 || exiting.page == 4) && <Page index="4"><OnePage><ContactPage></ContactPage></OnePage></Page> }
     </div>
   );
 
