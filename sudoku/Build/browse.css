@@ -219,6 +219,15 @@ iframe {
   pointer-events: none;
 }
 
+.container-fadein{
+  animation: fade-in 0.5s forwards;
+}
+.container-fadeout{
+  animation: fade-in 0.5s reverse;
+}
+
+
+
 #iframe-link {
   cursor: pointer;
 }
