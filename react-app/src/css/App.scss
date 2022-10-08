@@ -71,6 +71,15 @@ button{
   }
 }
 
+@keyframes fade-in{
+  from{
+    opacity: 0%;
+  }
+  to{
+    opacity: 100%;
+  }
+} 
+
 .NavBar{
   width: 100%;
   display: flex;
@@ -83,6 +92,10 @@ button{
   padding: 0.2vw 0;
   z-index: 1000;
   transition: top 0.5s;
+
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+
   &.Down{
     top: 45vh;
   }
@@ -156,6 +169,10 @@ button{
   margin: 0;
   line-height: 100%;
   z-index: 9000;
+
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+
   &:hover{
     letter-spacing: 0.02em;
     transition: letter-spacing 0.2s;
@@ -171,4 +188,3 @@ button{
     transition: all 0.5s;
   }
 }
-

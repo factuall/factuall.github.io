@@ -61,6 +61,23 @@ button:hover.nav {
   min-height: 45vh;
 }
 
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
 .NavBar {
   width: 100%;
   display: flex;
@@ -73,6 +90,10 @@ button:hover.nav {
   padding: 0.2vw 0;
   z-index: 1000;
   transition: top 0.5s;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 .NavBar.Down {
   top: 45vh;
@@ -149,6 +170,10 @@ button:hover.nav {
   margin: 0;
   line-height: 100%;
   z-index: 9000;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 .FullName:hover {
   letter-spacing: 0.02em;

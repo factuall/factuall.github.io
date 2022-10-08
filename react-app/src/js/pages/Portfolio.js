@@ -17,10 +17,22 @@ function ScrollingPage({children}){
     </>);
   }
   function PortfolioPage() {
-      const [isOpen, setOpen] = useState(false);
+      const [isVideoOpen, setVideoOpen] = useState(false);
+      const [isVideoVisible, setVideoVisible] = useState(false);
+      
       const [state, setState] = useContext(Context);
       return(<>
-        <div style={{display: isOpen ? "flex" : "none"}} className="video-showcase" onClick={()=>{setOpen(false)}}>
+        <div
+            style={{display: isVideoOpen ? "flex" : "none"}}
+            className={"video-showcase" + (isVideoVisible ? " show" : "")}
+            onClick={(e)=>{
+                if(e.target === e.currentTarget){
+                    setVideoVisible(false);
+                    setTimeout(()=>{setVideoOpen(false)}, 500);
+                    e.target.children[0].pause();  
+                }
+
+                }}>
             <video src={vidMacro} autoPlay className="video-box" controls></video>
         </div>
         <ScrollingPage>
@@ -68,7 +80,10 @@ function ScrollingPage({children}){
                 {/* <p style="text-align: center; font-size: 1.4em; text-decoration: underline;"></p> */}
                 <div className="bottom-element">
                 <div
-                    onClick={()=>{setOpen(true)}}
+                    onClick={()=>{
+                        setVideoOpen(true);
+                        setTimeout(() =>{ setVideoVisible(true)}, 10);
+                    }}
                     className="button primary"
                     style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
                 >

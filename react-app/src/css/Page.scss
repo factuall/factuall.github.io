@@ -154,6 +154,14 @@ a.button-link{
     left: 0;
     justify-content: center;
     align-items: center;
+    transform: translateY(-10%);
+    transition: opacity 0.5s;
+    opacity: 0%;
+    &.show{
+        opacity: 100%;
+        transition: opacity 0.5s;
+
+    }
 }
 
 .video-box{

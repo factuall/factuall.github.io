@@ -7,30 +7,37 @@
     <title>Unity WebGL Player | sudoku</title>
   </head>
   <body style="text-align: center">
-    <div id="navigation-bar">
-      <a href="/">
+    <div id="container">
+      <div id="navigation-bar">
+          <div class="button" id="home" onclick="leave()">🏠</div>
+        <div id="nav-end"></div>
+      </div>
+      <div style="position: fixed; top: 0; width: 100vw;">
 
-          <div class="button" id="home" href="/">🏠</div>
-      </a>
-      <div id="nav-end"></div>
-    </div>
-    <div style="position: fixed; top: 0; width: 100vw;">
+        <canvas id="unity-canvas" width=580 height=720 style="width: 580px; height: 720px; background: #231F20; top: 5%; position: relative;"></canvas>
+      </div>
+        <script src="./Build/sudoku.loader.js"></script>
+        <script>
+          createUnityInstance(document.querySelector("#unity-canvas"), {
+            dataUrl: "Build/sudoku.data",
+            frameworkUrl: "Build/sudoku.framework.js",
+            codeUrl: "Build/sudoku.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "Adrian Factuall Niesciur",
+            productName: "sudoku",
+            productVersion: "1.0",
+            // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+          // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+        });
+        function leave(){
+        document.getElementById("container").style.animation = "fade-in 0.3s reverse";
+          setTimeout(() => {
+            document.getElementById("container").style.display = "none";
+            window.location.href = "/";
+          }, 300);
 
-      <canvas id="unity-canvas" width=580 height=720 style="width: 580px; height: 720px; background: #231F20; top: 5%; position: relative;"></canvas>
+        }
+      </script>
     </div>
-      <script src="./Build/sudoku.loader.js"></script>
-      <script>
-        createUnityInstance(document.querySelector("#unity-canvas"), {
-          dataUrl: "Build/sudoku.data",
-          frameworkUrl: "Build/sudoku.framework.js",
-          codeUrl: "Build/sudoku.wasm",
-          streamingAssetsUrl: "StreamingAssets",
-          companyName: "Adrian Factuall Niesciur",
-          productName: "sudoku",
-          productVersion: "1.0",
-          // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
-    </script>
   </body>
 </html>
