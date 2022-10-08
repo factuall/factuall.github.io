@@ -5,9 +5,10 @@ import imgExtension from "../../assets/clickhelper1.png";
 import imgHome from "../../assets/home.png";
 import imgCalc from "../../assets/calc.png"
 import imgTwitter from "../../assets/twitter.png";
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import React from 'react';
 import vidMacro from "../../assets/extension.mp4"
+import {Context} from "../Store";
 function ScrollingPage({children}){
     return(<>
       <div className="ScrollingPage">
@@ -17,8 +18,9 @@ function ScrollingPage({children}){
   }
   function PortfolioPage() {
       const [isOpen, setOpen] = useState(false);
+      const [state, setState] = useContext(Context);
       return(<>
-        <div style={{display: isOpen ? "flexx" : "none"}} className="video-showcase" onClick={()=>{setOpen(false)}}>
+        <div style={{display: isOpen ? "flex" : "none"}} className="video-showcase" onClick={()=>{setOpen(false)}}>
             <video src={vidMacro} autoPlay className="video-box" controls></video>
         </div>
         <ScrollingPage>
@@ -33,9 +35,15 @@ function ScrollingPage({children}){
                 </div>
                 <div class="page-grid-cell-fill-rest">
                     <div class="bottom-element">
-                        <div onClick={console.log('')} class="button primary" style={{position: 'relative', margin:'auto', marginBottom: '5%'}}>
-                            Play Online - Soon
-                        </div>
+                            <div onClick={()=>{
+                                setState({page: 100});
+                                setTimeout(()=>{
+                                    window.location.href += "/sudoku/sudoku.html";
+                                },800);
+                            }} class="button primary" style={{position: 'relative', margin:'auto', marginBottom: '5%'}}>
+                                Play Live Demo
+                            </div>
+
                         <div class="page-grid-cell-screens">
                             <img src={imgSudokuA} style={{width: '100%', height: '100%'}}></img>
                             <img src={imgSudokuB} style={{width: '100%', height: '100%'}}></img>
@@ -132,20 +140,18 @@ function ScrollingPage({children}){
                 <div className="page-grid-cell-fill-rest">
                 <div className="bottom-element" style={{ width: "100%" }}>
                     <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div
-                        onclick="openLive('drinkcalc/')"
-                        className="button primary"
-                        style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
-                    >
-                        React Port - Soon
-                    </div>
-                    <div
-                        onclick="openLive('drinkcalcpl/')"
-                        className="button primary"
-                        style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
-                    >
-                        React Port - Soon
-                    </div>
+                        <div onClick={()=>{
+                                setState({page: 100});
+                                setTimeout(()=>{
+                                    window.location.href += "/calcalc/calcalc.html";
+                                },800);
+                            }}
+                            className="button primary"
+                            style={{ position: "relative", margin: "auto", marginBottom: "5%" }}
+                        >
+                            Open Calculator
+                        </div>
+
                     </div>
                     <div
                     className="page-grid-cell-screens"

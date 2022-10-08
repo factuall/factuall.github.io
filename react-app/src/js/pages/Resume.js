@@ -15,13 +15,13 @@ function ResumePage() {
         <p>Select the method of opening and language.</p>
         <div style={{...buttonLineStyle, ...{marginTop: '2em'}}}>
             <p style={{display: 'flex', justifyContent: 'center'}}>View in browser:</p>
-            <div style={buttonStyle}><div className='button'>&nbsp;<a href='https://google.com/' className='button-link'>Polish</a></div></div>
-            <div style={buttonStyle}><div className='button'>&nbsp;<a href='https://google.com/' className='button-link'>English</a></div></div>
+            {/* <div style={buttonStyle}><div className='button'>&nbsp;<a href='/cv/AdrianNiesciurCV.pdf' className='button-link'>Polish</a></div></div> */}
+            <div style={buttonStyle}><div className='button'>&nbsp;<a href='/cv/AdrianNiesciurCV.pdf' className='button-link'>English</a></div></div>
         </div>
         <div style={buttonLineStyle}>
             <p style={{display: 'flex', justifyContent: 'center'}}>Download PDF:</p>
-            <div style={buttonStyle}><div className='button'>&nbsp;<a href='https://google.com/' className='button-link'>Polish</a></div></div>
-            <div style={buttonStyle}><div className='button'>&nbsp;<a href='https://google.com/' className='button-link'>English</a></div></div>
+            {/* <div style={buttonStyle}><div className='button'>&nbsp;<a href='/cv/AdrianNiesciurCV.pdf' className='button-link'>Polish</a></div></div> */}
+            <div style={buttonStyle}><div className='button'>&nbsp;<a href='/cv/AdrianNiesciurCV.pdf' download className='button-link'>English</a></div></div>
         </div>
         
         <p style={{position: 'absolute', bottom: '0', marginBottom: '1em', width: 'calc(100% - 4vw)'}}>

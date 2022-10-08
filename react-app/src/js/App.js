@@ -10,8 +10,13 @@ import ContactPage from './pages/Contact';
 function NavBar() {
 
   const [state, setState] = useContext(Context);
+  const [cooledDown, setCooledDown] = useState(true);
   const handleClick = (val) => {
-    setState({ page: val });
+    if(cooledDown){
+      setState({ page: val });
+      setCooledDown(false);
+      setTimeout(()=>{setCooledDown(true)}, 800);
+    }
   };
   return (
     <>
@@ -63,7 +68,7 @@ const OnePage = ({ children }) => {
   return(
     <div className="OnePage">{children}</div>
   );
-}
+} 
 
 const WebContent = () => {
   const [state, setState] = useContext(Context);
@@ -85,7 +90,7 @@ const WebContent = () => {
       {(state.page == 3 || exiting.page == 3) && <Page index="3"><OnePage><ResumePage></ResumePage></OnePage></Page> }
       {(state.page == 4 || exiting.page == 4) && <Page index="4"><OnePage><ContactPage></ContactPage></OnePage></Page> }
     </div>
-  );
+  );  
 
 }
 

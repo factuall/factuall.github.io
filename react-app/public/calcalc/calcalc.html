@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="./browse.css">
+    <title>Alcohol Beverage Calculator</title>
+  </head>
+  <body style="text-align: center">
+    <div id="navigation-bar">
+        <a href="/">
+  
+            <div class="button" id="home" href="/">🏠</div>
+        </a>
+      <div id="nav-end"></div>
+    </div>
+    <div class="page-grid" id="page-grid" style="position: static">
+      <div class="page-grid-article-cell">
+        <p class="page-title" style="text-align: center;">Alcohol Beverage Calculator</p>
+        <p>Easy way to figure out how much of actuall alcohol is in your specific drink, and how much you pay for it. If you want to make the most of your budget, save or control your alcohol intake - this website will come in handy.</p>
+        <p class="page-subtitle" style="text-align: center;">Input your data:</p>
+        <div style="display: flex; justify-content: center; padding: 0.1em 3em;">
+          <p style="width: 8em;">Volume (ml):</p>
+          <div style="display: flex; justify-content: space-around; width: 10%;"><input type="number" style="width: 3em" placeholder="500" min="0" step="50"></div>
+        </div>
+        <div style="display: flex; justify-content: center; padding: 0.1em 3em;">
+          <p style="width: 8em;">Alcohol (%):</p>
+          <div style="display: flex; justify-content: center; width: 10%;"><input type="number" style="width: 3em" placeholder="40" min="0" max="100" step="0.5"></div>
+        </div>
+        <div style="display: flex; justify-content: center; padding: 0.1em 3em;">
+          <p style="width: 8em;">Price ($):</p>
+          <div style="display: flex; justify-content: center; width: 10%; "><input type="number" style="width: 3em" placeholder="30" min="0" step="0.1"></div>
+        </div>
+        <p><div class="button primary" style="margin: auto" id="calc">Calculate</div></p>
+        <p id="amount">...</p>
+        <p id="price">...</p>
+        <p class="page-subtitle">Previous results:</p>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap" id="prev"></div>
+      </div>
+    </div>
+    <script>
+        var volume;
+        var alcohol;
+        var price;
+        var result;
+        var result2;
+      document.getElementById("calc").onclick = function() {
+        if(document.getElementById("price").innerHTML != "..."){
+          let div = document.createElement("p");
+        div.style.backgroundColor = "black";
+        div.style.padding = "0.3em";
+        div.style.margin = "0.3em";
+        div.style.borderRadius = "0.3em";
+        div.innerHTML = (Math.round(result*100)/100) + "mg, <br>" + (Math.round(result2*100)/100) + "$";
+        document.getElementById("prev").prepend(div);
+        }
+         volume = document.getElementsByTagName("input")[0].value;
+         alcohol = document.getElementsByTagName("input")[1].value;
+         price = document.getElementsByTagName("input")[2].value;
+         result = (volume * (alcohol/100)) * 0.79;
+         result2 = price / result;
+
+        document.getElementById("amount").innerHTML = "Amount of pure alcohol: " + (Math.round(result*100)/100) + "mg";
+        document.getElementById("price").innerHTML = "Price for 1mg of alcohol: " + (Math.round(result2*100)/100) + "$";
+      }
+    </script>
+  </body>
+</html>
