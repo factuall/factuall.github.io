@@ -33,7 +33,7 @@ function ScrollingPage({children}){
                 }
 
                 }}>
-            <video src={vidMacro} autoPlay className="video-box" controls></video>
+            <video src={vidMacro} className="video-box" controls></video>
         </div>
         <ScrollingPage>
             <div class="page-grid-cell-fill-container">
