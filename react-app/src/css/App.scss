@@ -26,7 +26,7 @@ button{
   background-color: $button-color;
   color: $font-color;
   text-align: center;
-  font-size: 2vh;
+  font-size: 2.5vh;
   position: relative;
   transition: width 0.2s, border 0.2s;
   min-height: 0;
@@ -161,7 +161,7 @@ button{
 .FullName{
   position: fixed;
   text-align: center;
-  width: 100%;
+  width: 99%;
   color: $font-color;
   font-size: 8vw;
   letter-spacing: auto;
@@ -169,12 +169,14 @@ button{
   margin: 0;
   line-height: 100%;
   z-index: 9000;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   animation-name: fade-in;
   animation-duration: 0.5s;
 
   &:hover{
-    letter-spacing: 0.02em;
+    letter-spacing: 0.005em;
     transition: letter-spacing 0.2s;
   }
   &.Hide{
@@ -186,5 +188,13 @@ button{
     top: calc(45vh - 1em);
     opacity: 100%;
     transition: all 0.5s;
+  }
+}
+
+.name-letter{
+  font-size: 8vw;
+  transition: font-size 0.2s;
+  &:hover{
+    font-size: 9vw;
   }
 }

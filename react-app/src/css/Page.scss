@@ -20,12 +20,12 @@ p{
 
 .button{
     font-family: $default-font;
-    width: calc(3vh * 6);
+    width: calc(3vh * 7);
     line-height: 200%;
     background-color: $button-color;
     color: $font-color;
     text-align: center;
-    font-size: 2vh;
+    font-size: 2.5vh;
     position: relative;
     transition: width 0.2s, border 0.2s;
     min-height: 0;

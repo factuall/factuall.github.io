@@ -9,12 +9,12 @@ p {
 
 .button {
   font-family: "Oxygen", sans-serif;
-  width: 18vh;
+  width: 21vh;
   line-height: 200%;
   background-color: #282828;
   color: #c2c2ac;
   text-align: center;
-  font-size: 2vh;
+  font-size: 2.5vh;
   position: relative;
   transition: width 0.2s, border 0.2s;
   min-height: 0;
