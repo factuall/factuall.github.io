@@ -1,0 +1,41 @@
+$size: 100px;
+$margin: 1px;
+$freespace: calc($size * 1.732 + 4 * $margin - 1px); 
+$body-color: #181818;
+$background-color: #1d1d1d;
+
+
+.main{
+    display: flex;
+}
+
+.background-container{
+    background-color: $body-color;
+    position: fixed;
+    top: calc(0px - $size / 2);
+    left: calc(0px - $size / 2);
+    width: calc(100% + $size * 2);
+    height: calc(100% + $size /2);
+    font-size: 0;
+}
+
+.background-container div{
+    font-size: initial;
+    width: $size;
+    margin: $margin;
+    height: calc($size * 1.1547);
+    display: inline-block;
+    font-size: initial; /* we reset the font-size if we want to add some content */
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    margin-bottom: calc($margin - $size * 0.2886); /* some negative margin to create overlap */
+    background-color: $background-color;
+}
+
+.background-container::before {
+    content: "";
+    width: calc($size/2 + $margin);
+    float: left;
+    height: 120%;
+    shape-outside: repeating-linear-gradient(#0000 0 calc($freespace - 3px), #000 0 $freespace);
+}
+  

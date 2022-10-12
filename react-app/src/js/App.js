@@ -6,6 +6,7 @@ import AboutPage from './pages/About';
 import ResumePage from './pages/Resume';
 import PortfolioPage from './pages/Portfolio';
 import ContactPage from './pages/Contact';
+import SiteBackground from './Background';
 
 function NavBar() {
 
@@ -78,6 +79,7 @@ const WebContent = () => {
   }, [state]);
   return (
     <div>
+      <SiteBackground></SiteBackground>
       <div className="NameHolder">
         <p className={state.page == 0 ?  "FullName Show" : "FullName Hide"}>
           <div className="name-letter">A</div>
