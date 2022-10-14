@@ -28,7 +28,7 @@ $background-color: #181818;
     font-size: initial; /* we reset the font-size if we want to add some content */
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
     margin-bottom: calc($margin - $size * 0.2886); /* some negative margin to create overlap */
-    background-color: $background-color;
+    //background-color: $background-color;
 }
 
 .background-container::before {
