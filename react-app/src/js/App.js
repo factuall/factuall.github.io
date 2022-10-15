@@ -33,11 +33,13 @@ function NavBar() {
 const Page = (props) =>{
   const [state, setState] = useContext(Context);
   const [show, setShow] = useState("");
+  const [goDown, setGoDown] = useState("");
   useEffect(()=>{
     setShow(props.index == state.page);
+    setGoDown(state.page == 0 ? "down" : "");
   }, [state]);
   return(<>
-      <div className={'Page '+show}>{props.children}</div>
+      <div className={'Page '+show+goDown}>{props.children}</div>
   </>);
 }
 
@@ -99,7 +101,7 @@ const WebContent = () => {
           <div className="name-letter">r</div>
         </p>
       </div>
-      <div className={state.page > 0 ? "TopObstruction" : "TopObstruction Down"}></div>
+      {/* <div className={state.page > 0 ? "TopObstruction" : "TopObstruction Down"}></div> */}
       <div className={state.page > 0 ? "NavBar" : "NavBar Down"}> 
       <NavBar></NavBar>  
       </div>

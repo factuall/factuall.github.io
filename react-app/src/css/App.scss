@@ -126,7 +126,7 @@ button{
 }
 
 .Page{
-  top: -100vh;
+  top: 100vh;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -135,6 +135,10 @@ button{
     transition: top 0.8s;
   }
   &.false{
+    top: -100vh;
+    transition: top 0.8s;
+  }
+  &.falsedown{
     top: 100vh;
     transition: top 0.8s;
   }
