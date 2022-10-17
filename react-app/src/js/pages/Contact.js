@@ -1,67 +1,68 @@
-import imgEmail from "../../assets/email.gif"
-function ContactPage(){
-    return(
-        <>
-        <div className="page-grid" id="page-grid" style={{ position: "static" }}>
+import imgEmail from "../../assets/email.gif";
+function ContactPage() {
+  return (
+    <>
+      <div className="page-grid" id="page-grid" style={{ position: "static" }}>
         <div className="page-grid-article-cell">
-        <p className="page-title" style={{ textAlign: "center" }}>
+          <p className="page-title" style={{ textAlign: "center" }}>
             Contact me!
-        </p>
-        <div
+          </p>
+          <div
             style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            marginTop: "1em"
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              marginTop: "1em",
             }}
-        >
+          >
             <form
-            action="https://formspree.io/f/mbjwajoj"
-            method="POST"
-            style={{ width: "60%" }}
+              action="https://formspree.io/f/mbjwajoj"
+              method="POST"
+              style={{ width: "60%" }}
             >
-            <input
+              <input
                 type="email"
                 name="email"
                 className="text-input"
                 placeholder="Email"
                 style={{ width: "100%", display: "inline-block" }}
-            />
-            <textarea
+              />
+              <textarea
                 name="message"
                 className="text-input"
                 placeholder="Message"
                 style={{
-                width: "100%",
-                resize: "none",
-                height: "30vh",
-                display: "block"
+                  width: "100%",
+                  resize: "none",
+                  height: "30vh",
+                  display: "block",
                 }}
                 defaultValue={""}
-            />
-            {/* your other form fields go here */}
-            <button
+              />
+              {/* your other form fields go here */}
+              <button
                 type="submit"
                 className="button bottom-element"
                 style={{ position: "relative", margin: "0.2em" }}
-            >
+              >
                 Send
-            </button>
+              </button>
             </form>
-        </div>
-        <img
+          </div>
+          <img
             src={imgEmail}
             style={{
-            maxHeight: "40vh",
-            display: "block",
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)"
+              maxHeight: "40vh",
+              display: "block",
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
             }}
-        />
+          />
         </div>
-    </div>
-    </>)
+      </div>
+    </>
+  );
 }
 export default ContactPage;

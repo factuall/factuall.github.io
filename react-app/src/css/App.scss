@@ -7,7 +7,7 @@ $button-border-color: #66666699;
 $button-border-hover-color: #999999;
 $link-color: rgb(199, 191, 118);
 
-.App{
+.App {
   color: $font-color;
   margin: 0;
   padding: 0;
@@ -16,11 +16,11 @@ $link-color: rgb(199, 191, 118);
   height: 100vh;
 }
 
-body{ 
-  overflow: hidden; 
+body {
+  overflow: hidden;
 }
 
-button{
+button {
   width: calc(3vh * 5);
   line-height: 200%;
   background-color: $button-color;
@@ -33,32 +33,31 @@ button{
   border: 1px solid $button-border-color;
   border-radius: 0.3em;
   z-index: 3;
-  &:hover{
-    &.nav{      
+  &:hover {
+    &.nav {
       width: calc(3vh * 5.5);
     }
     border: 1px solid $button-border-hover-color;
     transition: width 0.2s, border 0.2s;
   }
-
 }
 
-.Home{
+.Home {
   position: absolute;
   left: 0.2vw;
   width: calc(3vh * 2);
   z-index: 4;
-  &.Show{
+  &.Show {
     opacity: 100%;
     transition: opacity 0.2s;
   }
-  &.Hide{
+  &.Hide {
     opacity: 0%;
     transition: opacity 0.2s;
   }
 }
 
-.TopObstruction{
+.TopObstruction {
   z-index: 8888;
   position: fixed;
   width: 100%;
@@ -66,21 +65,21 @@ button{
   top: 0px;
   background-color: $body-color;
   transition: min-height 0.5s;
-  &.Down{
+  &.Down {
     min-height: 45vh;
   }
 }
 
-@keyframes fade-in{
-  from{
+@keyframes fade-in {
+  from {
     opacity: 0%;
   }
-  to{
+  to {
     opacity: 100%;
   }
-} 
+}
 
-.NavBar{
+.NavBar {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -96,12 +95,12 @@ button{
   animation-name: fade-in;
   animation-duration: 0.5s;
 
-  &.Down{
+  &.Down {
     top: 45vh;
   }
 }
 
-.ScrollingPages{
+.ScrollingPages {
   font-size: 1.8vh;
   position: relative;
   display: flex;
@@ -109,13 +108,13 @@ button{
   padding: 0.5em;
   height: 91.5vh;
   justify-content: center;
-  transition: right 0.5s, top 0.5s, left 0.5s;   
-  flex-shrink: 0; 
+  transition: right 0.5s, top 0.5s, left 0.5s;
+  flex-shrink: 0;
   width: max-content;
   top: 5vh;
 }
 
-.ScrollingPage{
+.ScrollingPage {
   position: relative;
   padding: 2vw;
   border-radius: 0.75vw;
@@ -125,26 +124,26 @@ button{
   animation: cell-slide-in forwards 0.8s;
 }
 
-.Page{
+.Page {
   top: 100vh;
   position: absolute;
   height: 100%;
   width: 100%;
-  &.true{
+  &.true {
     top: 0vh;
     transition: top 0.8s;
   }
-  &.false{
+  &.false {
     top: -100vh;
     transition: top 0.8s;
   }
-  &.falsedown{
+  &.falsedown {
     top: 100vh;
     transition: top 0.8s;
   }
 }
 
-.OnePage{
+.OnePage {
   left: 50%;
   padding: 3vh;
   border-radius: 0.75vw;
@@ -162,7 +161,7 @@ button{
   top: 0vh;
 }
 
-.FullName{
+.FullName {
   position: fixed;
   text-align: center;
   width: 99%;
@@ -179,26 +178,26 @@ button{
   animation-name: fade-in;
   animation-duration: 0.5s;
 
-  &:hover{
+  &:hover {
     letter-spacing: 0.005em;
     transition: letter-spacing 0.2s;
   }
-  &.Hide{
+  &.Hide {
     opacity: 0;
     top: -8vw;
     transition: all 0.5s;
   }
-  &.Show{
+  &.Show {
     top: calc(45vh - 1em);
     opacity: 100%;
     transition: all 0.5s;
   }
 }
 
-.name-letter{
+.name-letter {
   font-size: 8vw;
   transition: font-size 0.2s;
-  &:hover{
+  &:hover {
     font-size: 9vw;
   }
 }
