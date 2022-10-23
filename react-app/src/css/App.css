@@ -10,7 +10,7 @@
 body {
   overflow: hidden;
 }
- 
+
 button {
   width: 15vh;
   line-height: 200%;
@@ -94,6 +94,7 @@ button:hover.nav {
           animation-name: fade-in;
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.6);
 }
 .NavBar.Down {
   top: 45vh;
@@ -112,10 +113,11 @@ button:hover.nav {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  top: 5vh;
+  top: 7vh;
 }
 
 .ScrollingPage {
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.6);
   position: relative;
   padding: 2vw;
   border-radius: 0.75vw;
@@ -156,11 +158,12 @@ button:hover.nav {
   -webkit-animation: cell-slide-in-article forwards 0.8s;
           animation: cell-slide-in-article forwards 0.8s;
   position: absolute;
-  transform: translate(-50%, 6vh);
-  min-height: 85vh;
-  max-height: 86vh;
+  transform: translate(-50%, 8vh);
+  min-height: 82vh;
+  max-height: 83vh;
   transition: top 1s;
   top: 0vh;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.6);
 }
 
 .FullName {

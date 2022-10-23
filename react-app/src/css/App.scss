@@ -6,6 +6,7 @@ $font-color: #c2c2ac;
 $button-border-color: #66666699;
 $button-border-hover-color: #999999;
 $link-color: rgb(199, 191, 118);
+$shadow: 0 0 3px 3px rgb(0, 0, 0, 0.6);
 
 .App {
   color: $font-color;
@@ -98,6 +99,8 @@ button {
   &.Down {
     top: 45vh;
   }
+
+  box-shadow: $shadow;
 }
 
 .ScrollingPages {
@@ -111,10 +114,11 @@ button {
   transition: right 0.5s, top 0.5s, left 0.5s;
   flex-shrink: 0;
   width: max-content;
-  top: 5vh;
+  top: 7vh;
 }
 
 .ScrollingPage {
+  box-shadow: $shadow;
   position: relative;
   padding: 2vw;
   border-radius: 0.75vw;
@@ -153,12 +157,13 @@ button {
   max-width: 1000px;
   animation: cell-slide-in-article forwards 0.8s;
   position: absolute;
-  -ms-transform: translate(-50%, 6vh);
-  transform: translate(-50%, 6vh);
-  min-height: 85vh;
-  max-height: 86vh;
+  -ms-transform: translate(-50%, 8vh);
+  transform: translate(-50%, 8vh);
+  min-height: 82vh;
+  max-height: 83vh;
   transition: top 1s;
   top: 0vh;
+  box-shadow: $shadow;
 }
 
 .FullName {

@@ -18,10 +18,10 @@ const TitleFullName = () => {
       >
         <p className={state.page == 0 ? "FullName Show" : "FullName Hide"}>
           <div className="name-letter">A</div>
+          <div className="name-letter">d</div>
           <div className="name-letter">r</div>
           <div className="name-letter">i</div>
           <div className="name-letter">a</div>
-          <div className="name-letter">d</div>
           <div className="name-letter">n</div>
           <div className="name-letter">&nbsp;</div>
           <div className="name-letter">N</div>

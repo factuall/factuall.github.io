@@ -21,7 +21,8 @@ const SiteBackground = (props) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(rollColors, 5000);
+    rollColors();
+    const interval = setInterval(rollColors, 2500);
     return () => {
       clearInterval(interval);
     };
@@ -42,7 +43,7 @@ const SiteBackground = (props) => {
                 "," +
                 hexes.color[i] +
                 ")",
-              transition: "all 5s ease-in-out",
+              transition: "all 2s",
             }}
           ></div>
         ))}
